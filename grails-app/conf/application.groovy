@@ -4,8 +4,6 @@
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'vamp_webapp.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'vamp_webapp.UserRole'
 grails.plugin.springsecurity.authority.className = 'vamp_webapp.Role'
-grails.plugin.springsecurity.requestMap.className = 'vamp_webapp.UserRole'
-grails.plugin.springsecurity.securityConfigType = 'Requestmap'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
