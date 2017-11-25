@@ -19,7 +19,6 @@
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
     <asset:stylesheet src="prism.css" />
     <asset:stylesheet src="perfect-scrollbar.css"/>
-    <asset:stylesheet src="flag-icon.min.css"/>
 </head>
 
 <body class="loaded">
