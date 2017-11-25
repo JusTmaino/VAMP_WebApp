@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/VAMP_WebApp.iml" filepath="$PROJECT_DIR$/VAMP_WebApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/VAMP_WebApp_main.iml" filepath="$PROJECT_DIR$/.idea/modules/VAMP_WebApp_main.iml" group="VAMP_WebApp" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/VAMP_WebApp_test.iml" filepath="$PROJECT_DIR$/.idea/modules/VAMP_WebApp_test.iml" group="VAMP_WebApp" />
+    </modules>
+  </component>
+</project>
