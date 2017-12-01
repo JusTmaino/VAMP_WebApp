@@ -49,7 +49,8 @@
         </g:if>
 
 
-        <form class="login-form" id="registerForm" action="/user/register" method="post" >
+        <form id="registerForm" action="/user/register" method="post" >
+
             <fieldset>
 
                 <div class="row margin">
