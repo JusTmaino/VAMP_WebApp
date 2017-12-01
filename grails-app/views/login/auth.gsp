@@ -65,7 +65,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s6 m6 l6">
-					<p class="margin medium-small"><a href="#">Nouveau utilisateur!</a></p>
+					<p class="margin medium-small"><g:link action="register" controller="login">Nouveau utilisateur!</g:link></p>
 				</div>
 				<div class="input-field col s6 m6 l6">
 					<p class="margin right-align medium-small"><a href="#">Mot de passe oublié?</a></p>

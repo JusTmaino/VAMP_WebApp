@@ -3,7 +3,6 @@ package vamp_webapp
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
 class UserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
@@ -84,6 +83,9 @@ class UserController {
             return
         }
 
+        Role removedRole=Role.findById(UserRole.findByUser(user).role.id);
+        UserRole.remove (user, removedRole)
+
         user.delete flush:true
 
         request.withFormat {
@@ -93,6 +95,32 @@ class UserController {
             }
             '*'{ render status: NO_CONTENT }
         }
+    }
+
+    @Transactional
+    def register(User user) {
+        System.out.println("Registering....")
+        if (user == null) {
+            transactionStatus.setRollbackOnly()
+            notFound()
+            return
+        }
+
+        if (user.hasErrors()) {
+            transactionStatus.setRollbackOnly()
+            redirect(controller: 'login', action:'register' ,params: [error: "User Already Exist !!!"])
+            return
+        }
+
+        System.out.println("params : "+params)
+        System.out.println("User : "+user)
+
+        user.save flush:true
+        Role role=Role.findByAuthority('ROLE_USER');
+        UserRole.create (user, role, true)
+
+        redirect(controller: 'login', action:'auth')
+
     }
 
     protected void notFound() {

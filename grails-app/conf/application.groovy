@@ -4,6 +4,10 @@
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'vamp_webapp.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'vamp_webapp.UserRole'
 grails.plugin.springsecurity.authority.className = 'vamp_webapp.Role'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/'
+grails.plugin.springsecurity.successHandler.alwaysUseDefault = true
+grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.logout.afterLogoutUrl = '/login/auth'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
@@ -20,6 +24,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/role/**', access: ['ROLE_ADMIN']],
 	[pattern: '/userRole/**', access: ['ROLE_ADMIN']],
 	[pattern: '/car/**', access: ['ROLE_ADMIN']],
+	[pattern: '/car/create', access: ['permitAll']],
 	[pattern: '/location/**', access: ['ROLE_ADMIN']],
 	[pattern: '/media/**', access: ['ROLE_ADMIN']],
 	[pattern: '/playlist/**', access: ['ROLE_ADMIN']],

@@ -147,4 +147,8 @@ class LoginController {
 	protected ConfigObject getConf() {
 		SpringSecurityUtils.securityConfig
 	}
+
+	def register(){
+
+	}
 }

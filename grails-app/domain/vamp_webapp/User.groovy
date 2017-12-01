@@ -23,7 +23,7 @@ class User implements Serializable {
     Integer tel
     String mail
 
-    static hasMany = [cars:Car,locations:Location,profile:Profile]
+    static hasMany = [cars:Car,profile:Profile]
     //static hasOne = [profile:Profile]
 
     User (String username, String password,String surname,Date datenais, Integer tel,String mail ){
