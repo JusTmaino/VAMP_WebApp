@@ -1,28 +1,142 @@
+<%@ page import="vamp_webapp.UserRole" %>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
-        <title><g:message code="default.list.label" args="[entityName]" /></title>
-    </head>
-    <body>
-        <a href="#list-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
-        <div id="list-user" class="content scaffold-list" role="main">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
-            <g:if test="${flash.message}">
-                <div class="message" role="status">${flash.message}</div>
-            </g:if>
-            <f:table collection="${userList}" />
+<head>
+    <meta name="layout" content="main"/>
+    <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}"/>
+    <title><g:message code="default.list.label" args="[entityName]"/></title>
+</head>
 
-            <div class="pagination">
-                <g:paginate total="${userCount ?: 0}" />
+<body>
+<div class="card-widgets">
+    <div class="row">
+        <g:each var="user" in="${vamp_webapp.User.getAll()}">
+            <div class="col s12 m4 l4">
+                <div id="profile-card" class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="image here" alt="user bg"/>
+                    </div>
+
+                    <div class="card-content">
+                        <img src="image here" alt=""
+                             class="circle responsive-img activator card-profile-image cyan lighten-1 padding-2"/>
+                        <a href="show/${user.id}" class="btn-floating btn-move-up waves-effect waves-light deep-orange accent-2 z-depth-4 right">
+                            <i class="material-icons">chevron_right</i>
+                        </a>
+                        <a href="#" class="btn-floating  btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                            <i class="material-icons">delete</i>
+                        </a>
+                        <a href="edit/${user.id}" class="btn-floating  btn-move-up waves-effect waves-light teal accent-4 z-depth-4 right">
+                            <i class="material-icons">edit</i>
+                        </a>
+                        <span class="card-title activator grey-text text-darken-4"> ${user.fullName}</span>
+
+                        <p>
+                            <i class="material-icons">perm_identity</i> ${vamp_webapp.UserRole.findByUser(user).getRole().authority}</p>
+
+                        <p>
+                            <i class="material-icons">perm_phone_msg</i> +33 ${user.tel}</p>
+
+                        <p>
+                            <i class="material-icons">email</i>  ${user.mail}</p>
+                    </div>
+
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">${user.fullName}
+                            <i class="material-icons right">close</i>
+                        </span>
+
+                        <p>
+                            <i class="material-icons">perm_identity</i> ${vamp_webapp.UserRole.findByUser(user).getRole().authority}</p>
+
+                        <p>
+                            <i class="material-icons">perm_phone_msg</i> +33 ${user.tel}</p>
+
+                        <p>
+                            <i class="material-icons">email</i>  ${user.mail}</p>
+
+                        <p>
+                            <i class="material-icons">cake</i>   ${user.datenais}</p>
+
+                        <p>
+                            <i class="material-icons">person_add</i> ${user.datenais}</p>
+
+                        <div class="row">
+                            <a class="waves-effect waves-light modal-trigger btn cyan" href="#modal1"><i class="material-icons left">directions_car</i>voitures</a>
+                            <a class="waves-effect waves-light modal-trigger btn deep-orange" href="#modal2"><i class="material-icons left">queue_music</i>playlist</a>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-        </div>
-    </body>
+
+
+
+            <!--MODAL-->
+            <div id="modal1" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <h4><i class="material-icons md-36">directions_car</i> Voitures</h4>
+                    <p>A bunch of text</p>
+                    <ul class="collection">
+                        <g:each var="car" in="${user.cars}">
+                            <li class="collection-item avatar">
+                                <img src="img here" alt="" class="circle">
+                                <span class="title">${car.brand}</span>
+                                <p>${car.model}
+                                    <br> ${car.matricule}
+                                </p>
+                                <a href="#!" class="secondary-content">
+                                    Put something here
+                                </a>
+                            </li>
+                        </g:each>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
+            </div>
+
+            <div id="modal2" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <h4><i class="material-icons md-36">queue_music</i> Playlist</h4>
+                    <p>A bunch of text</p>
+                    <ul class="collection">
+                        <g:each var="car" in="${user.cars}">
+                            <li class="collection-item avatar">
+                                <img src="img here" alt="" class="circle">
+                                <span class="title">${car.brand}</span>
+                                <p>${car.model}
+                                    <br> ${car.matricule}
+                                </p>
+                                <a href="#!" class="secondary-content">
+                                    Put something here
+                                </a>
+                            </li>
+                        </g:each>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
+            </div>
+
+
+        </g:each>
+    </div>
+</div>
+<div class="fixed-action-btn " style="bottom: 50px; right: 19px;">
+    <a href="create" class="waves-effect waves-light btn-floating btn-large">
+        <i class="material-icons">add</i>
+    </a>
+</div>
+
+<g:javascript>
+    $(document).ready(function(){
+        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+        $('#modal1').modal();
+        $('#modal2').modal();
+    });
+</g:javascript>
+</body>
 </html>

@@ -18,30 +18,17 @@ class User implements Serializable {
     boolean accountLocked
     boolean passwordExpired
 
-    String surname
+    String fullName
     Date datenais
     Integer tel
     String mail
+    Date registrationDate
 
-    static hasMany = [cars:Car,profile:Profile]
-    //static hasOne = [profile:Profile]
-
-    User (String username, String password,String surname,Date datenais, Integer tel,String mail ){
-        this.username = username;
-        this.password = password;
-        this.surname = surname;
-        this.datenais = datenais;
-        this.tel = tel;
-        this.mail = mail;
-
-    }
+    static hasMany = [cars:Car,locations:Location,profile:Profile]
 
     Set<Role> getAuthorities() {
         (UserRole.findAllByUser(this) as List<UserRole>)*.role as Set<Role>
     }
-
-
-
 
     static constraints = {
         password nullable: false, blank: false, password: true

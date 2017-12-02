@@ -19,6 +19,9 @@
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
     <asset:stylesheet src="prism.css" />
     <asset:stylesheet src="perfect-scrollbar.css"/>
+    <asset:stylesheet src="flag-icon.min.css"/>
+    <!-- jQuery Library -->
+    <asset:javascript src="jquery-3.2.1.min.js"/>
 </head>
 
 <body class="loaded">
@@ -394,7 +397,7 @@
                 <p class="caption">Media can be styled in different ways using Materialize.</p>
                 <g:layoutBody/>
                 <!-- Floating Action Button -->
-                <div class="fixed-action-btn " style="bottom: 50px; right: 19px;">
+                <!--<div class="fixed-action-btn " style="bottom: 50px; right: 19px;">
                     <a class="btn-floating btn-large">
                         <i class="material-icons">add</i>
                     </a>
@@ -420,7 +423,7 @@
                             </a>
                         </li>
                     </ul>
-                </div>
+                </div>-->
                 <!-- Floating Action Button -->
             </div>
             <!--end container-->
@@ -539,8 +542,7 @@
 <!-- ================================================
     Scripts
     ================================================ -->
-<!-- jQuery Library -->
-<asset:javascript src="jquery-3.2.1.min.js"/>
+
 <!--materialize js-->
 <asset:javascript src="materialize.min.js"/>
 <!--prism-->

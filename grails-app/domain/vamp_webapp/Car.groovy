@@ -3,7 +3,7 @@ package vamp_webapp
 class Car {
     String brand;
     String model;
-    Integer matricule;
+    String matricule;
     Integer nb_place;
     Integer charge;
     Integer temperature_ext;
@@ -11,13 +11,13 @@ class Car {
 
 
 
-    static hasMany = [users:User]
-    static  hasOne = [location:Location]
+    //static hasMany = [users:User]
+    //static  hasOne = [location:Location]
 
     static constraints = {
-        brand blank: false
+        brand blank: false@
         model blank: false
-        matricule nullable:false
+        matricule blank: false
         nb_place nullable:false
         charge nullable:false
         temperature_ext nullable:false

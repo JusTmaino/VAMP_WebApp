@@ -5,7 +5,7 @@ class Profile {
     Integer retro_pos;
     Integer sound;
 
-    static hasMany = [playlist:PlayList]
+    static hasMany = [playlists:PlayList]
     static belongsTo = [user:User]
 
     static constraints = {
