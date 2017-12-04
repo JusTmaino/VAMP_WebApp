@@ -22,9 +22,8 @@ class User implements Serializable {
     Date datenais
     Integer tel
     String mail
-    Date registrationDate
 
-    static hasMany = [cars:Car,locations:Location,profile:Profile]
+    static hasMany = [cars:Car,profile:Profile]
 
     Set<Role> getAuthorities() {
         (UserRole.findAllByUser(this) as List<UserRole>)*.role as Set<Role>

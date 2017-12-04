@@ -64,7 +64,7 @@
                 <div class="row margin">
                     <div class="input-field col s12">
                         <i class="material-icons prefix pt-5">email</i>
-                        <input type="text" name="mail" required="" id="mail" />
+                        <input type="email" name="mail" required="" id="mail" />
                         <label for="mail" class="center-align">Email</label>
                     </div>
                 </div>
@@ -88,8 +88,8 @@
                 <div class="row margin">
                     <div class="input-field col s12">
                         <i class="material-icons prefix pt-5">person_outline</i>
-                        <input type="text" name="surname" required="" id="surname" />
-                        <label for="surname" class="center-align">Surname</label>
+                        <input type="text" name="fullName" required="" id="fullName" />
+                        <label for="fullName" class="center-align">Full Name</label>
                     </div>
                 </div>
 
@@ -255,7 +255,7 @@
 
             <div class="row">
                 <div class="input-field col s12">
-                    <input type="submit" id="create" name="create" class="btn waves-effect waves-light col s12" value="Register Now" />
+                    <input type="submit" id="create" name="create" class="btn waves-effect waves-light col s12" value="Register Now" onclick="return Validate()" />
                 </div>
 
                 <div class="input-field col s12">
@@ -271,6 +271,17 @@
 <!-- ================================================
     Scripts
     ================================================ -->
+<script>
+    function Validate() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmpassword").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script>
 <!-- jQuery Library -->
 <asset:javascript src="jquery-3.2.1.min.js"/>
 <!--materialize js-->

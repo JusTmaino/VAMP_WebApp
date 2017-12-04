@@ -15,7 +15,7 @@ class Car {
     //static  hasOne = [location:Location]
 
     static constraints = {
-        brand blank: false@
+        brand blank: false
         model blank: false
         matricule blank: false
         nb_place nullable:false
