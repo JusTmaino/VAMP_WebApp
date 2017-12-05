@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="VAMP_WebApp_integrationTest" target="1.8" />
       <module name="VAMP_WebApp_main" target="1.8" />
       <module name="VAMP_WebApp_test" target="1.8" />
     </bytecodeTargetLevel>

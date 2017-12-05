@@ -22,6 +22,7 @@ class User implements Serializable {
     Date datenais
     Integer tel
     String mail
+    Image image
 
     static hasMany = [cars:Car,profile:Profile]
 
@@ -32,6 +33,7 @@ class User implements Serializable {
     static constraints = {
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
+        image nullable: true
     }
 
     static mapping = {

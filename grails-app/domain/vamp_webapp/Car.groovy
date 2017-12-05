@@ -2,6 +2,7 @@ package vamp_webapp
 
 class Car {
     String brand;
+
     String model;
     String matricule;
     Integer nb_place;
@@ -10,7 +11,7 @@ class Car {
     boolean locked;
 
 
-
+    static hasMany = [images:Image]
     //static hasMany = [users:User]
     //static  hasOne = [location:Location]
 
