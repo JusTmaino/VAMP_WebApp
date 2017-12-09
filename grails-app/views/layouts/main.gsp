@@ -233,28 +233,55 @@
                 <li class="no-padding">
                     <ul class="collapsible" data-collapsible="accordion">
                         <li class="bold">
-                            <a class="collapsible-header waves-effect waves-cyan">
+                            <a href="/"
+                               class="waves-effect waves-cyan">
                                 <i class="material-icons">dashboard</i>
-                                <span class="nav-text">Dashboard</span>
-                            </a>
 
-                            <div class="collapsible-body">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="material-icons">keyboard_arrow_right</i>
-                                            <span>eCommerce</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="material-icons">keyboard_arrow_right</i>
-                                            <span>Analytics</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                                <span class="nav-text">Home</span>
+                            </a>
                         </li>
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan" href="#">
+                                <i class="material-icons">directions_car</i>
+
+                                <span class="nav-text">My Cars</span>
+                                </a>
+                                <div class="collapsible-body">
+
+                                    <ul class="nav" id="cars">
+                                        <g:each var="cat" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getCars()}">
+                                            <li style="text-align: center">
+                                                <a href="/car/show/${cat.id}"><span
+                                                        class="sidebar-normal">${cat.getBrand()}</span>
+                                                </a>
+                                            </li>
+                                        </g:each>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan" href="#">
+                                    <i class="material-icons">mood</i>
+
+                                    <span class="nav-text">My profiles</span>
+                                </a>
+                                <div class="collapsible-body">
+
+                                    <ul class="nav" id="profiles">
+                                        <g:each var="cat" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
+                                            <li style="text-align: center">
+                                                <a href="/car/show/${cat.id}"><span
+                                                        class="sidebar-normal">profile ${cat.getId()}</span>
+                                                </a>
+                                            </li>
+                                        </g:each>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
 
                         <li class="bold">
                             <a href="#"
@@ -264,74 +291,56 @@
                             </a>
                         </li>
 
-                        <li class="li-hover">
-                            <p class="ultra-small margin more-text">MORE</p>
-                        </li>
 
+                        <sec:ifAnyGranted roles="ROLE_ADMIN">
                         <li class="no-padding">
                             <ul class="collapsible" data-collapsible="accordion">
                                 <li class="bold">
                                     <a class="collapsible-header waves-effect waves-cyan">
-                                        <i class="material-icons">photo_filter</i>
-                                        <span class="nav-text">Menu Levels</span>
+                                        <i class="material-icons">settings</i>
+
+                                        <span class="nav-text">Gestion </span>
                                     </a>
 
                                     <div class="collapsible-body">
-                                        <ul class="collapsible" data-collapsible="accordion">
-                                            <li>
-                                                <a href="#">
-                                                    <i class="material-icons">keyboard_arrow_right</i>
-                                                    <span>Second level</span>
+                                        <ul class="nav">
+                                            <li style="text-align: center">
+                                                <a href="/user/">
+                                                    <span class="sidebar-normal">Users</span>
                                                 </a>
                                             </li>
-                                            <li class="bold">
-                                                <a class="collapsible-header waves-effect waves-cyan">
-                                                    <i class="material-icons">keyboard_arrow_right</i>
-                                                    <span class="nav-text">Second level child</span>
+                                            <li style="text-align: center">
+                                                <a href="/car/">
+                                                    <span class="sidebar-normal">Cars</span>
                                                 </a>
-
-                                                <div class="collapsible-body">
-                                                    <ul class="collapsible" data-collapsible="accordion">
-                                                        <li>
-                                                            <a href="#">
-                                                                <i class="material-icons">keyboard_arrow_right</i>
-                                                                <span>Third level</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="bold">
-                                                            <a class="collapsible-header waves-effect waves-cyan">
-                                                                <i class="material-icons">keyboard_arrow_right</i>
-                                                                <span class="nav-text">Third level child</span>
-                                                            </a>
-
-                                                            <div class="collapsible-body">
-                                                                <ul class="collapsible" data-collapsible="accordion">
-                                                                    <li>
-                                                                        <a href="#">
-                                                                            <i class="material-icons">keyboard_arrow_right</i>
-                                                                            <span>Forth level</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="#">
-                                                                            <i class="material-icons">keyboard_arrow_right</i>
-                                                                            <span>Forth level</span>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                            </li>
+                                            <li style="text-align: center">
+                                                <a href="/profile/">
+                                                    <span class="sidebar-normal">Profiles</span>
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
                             </ul>
                         </li>
+                        </sec:ifAnyGranted>
                     </ul>
                 </li>
 
+                <li>
+                    <a href="#">
+                        <i class="material-icons">info</i>
+
+                        <span class="nav-text">A propos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="material-icons">textsms</i>
+                        <span class="nav-text">Contact us</span>
+                    </a>
+                </li>
                 <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x"
                                                                                       style="left: 0px; width: 0px;"></div>
                 </div>
@@ -358,37 +367,7 @@
                 </div>
 
                 <div class="container">
-                    <div class="row">
-                        <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title">cbzjchek</h5>
-                            <ol class="breadcrumbs">
-                                <li><a href="#">Dashboard</a>
-                                </li>
-                                <li class="active">cdcdc</li>
-                            </ol>
-                        </div>
 
-                        <div class="col s2 m6 l6">
-                            <a class="btn dropdown-settings waves-effect waves-light breadcrumbs-btn right"
-                               href="#!"
-                               data-activates="dropdown1">
-                                <i class="material-icons hide-on-med-and-up">settings</i>
-                                <span class="hide-on-small-onl">Settings</span>
-                                <i class="material-icons right">arrow_drop_down</i>
-                            </a><ul id="dropdown1" class="dropdown-content">
-                            <li><a href="#!"
-                                   class="grey-text text-darken-2">Access<span class="badge">1</span></a>
-                            </li>
-                            <li><a href="#!"
-                                   class="grey-text text-darken-2">Profile<span class="new badge">2</span></a>
-                            </li>
-                            <li><a href="#!"
-                                   class="grey-text text-darken-2">Notifications</a>
-                            </li>
-                        </ul>
-
-                        </div>
-                    </div>
                 </div>
             </div>
             <!--breadcrumbs end-->
