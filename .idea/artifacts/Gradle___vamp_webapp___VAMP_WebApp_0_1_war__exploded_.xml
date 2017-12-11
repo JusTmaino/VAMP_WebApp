@@ -47,8 +47,8 @@
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot:1.5.4.RELEASE" />
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-jdbc:8.5.15" />
           <element id="library" level="project" name="Gradle: org.codehaus.groovy:groovy:2.4.11" />
-          <element id="library" level="project" name="Gradle: com.bertramlabs.plugins:asset-pipeline-grails:2.14.2" />
           <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Gradle: com.bertramlabs.plugins:asset-pipeline-grails:2.14.2" />
           <element id="library" level="project" name="Gradle: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
           <element id="library" level="project" name="Gradle: com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:1.4.2" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.3.9.RELEASE" />
@@ -81,28 +81,22 @@
           <element id="library" level="project" name="Gradle: org.grails:grails-datastore-gorm-hibernate5:6.1.6.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-orm:4.3.9.RELEASE" />
           <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.3.1.Final" />
-          <element id="library" level="project" name="Gradle: antlr:antlr:2.7.7" />
           <element id="library" level="project" name="Gradle: org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1" />
           <element id="library" level="project" name="Gradle: org.jboss:jandex:2.0.3.Final" />
           <element id="library" level="project" name="Gradle: com.fasterxml:classmate:1.3.3" />
-          <element id="library" level="project" name="Gradle: dom4j:dom4j:1.6.1" />
           <element id="library" level="project" name="Gradle: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" />
           <element id="library" level="project" name="Gradle: org.grails:grails-web-jsp:3.3.0" />
           <element id="library" level="project" name="Gradle: org.grails:grails-web-gsp-taglib:3.3.0" />
-          <element id="library" level="project" name="Gradle: commons-lang:commons-lang:2.6" />
           <element id="library" level="project" name="Gradle: org.grails:grails-plugin-codecs:3.3.0" />
           <element id="library" level="project" name="Gradle: net.sf.ehcache:ehcache:2.10.4" />
           <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-core:4.2.3.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-web:4.2.3.RELEASE" />
           <element id="library" level="project" name="Gradle: ch.qos.logback:logback-core:1.1.11" />
-          <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.9.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.9.RELEASE" />
           <element id="library" level="project" name="Gradle: org.codehaus.groovy:groovy-xml:2.4.11" />
           <element id="library" level="project" name="Gradle: org.codehaus.groovy:groovy-templates:2.4.11" />
-          <element id="library" level="project" name="Gradle: org.yaml:snakeyaml:1.17" />
           <element id="library" level="project" name="Gradle: javax.el:el-api:2.1.2-b03" />
-          <element id="library" level="project" name="Gradle: javax.transaction:jta:1.1" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.8.8" />
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-juli:8.5.15" />
           <element id="library" level="project" name="Gradle: com.bertramlabs.plugins:asset-pipeline-core:2.14.2" />
@@ -130,7 +124,6 @@
           <element id="library" level="project" name="Gradle: javax.el:javax.el-api:2.2.4" />
           <element id="library" level="project" name="Gradle: xml-apis:xml-apis:1.4.01" />
           <element id="library" level="project" name="Gradle: org.grails:grails-codecs:3.3.0" />
-          <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.8.0" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.8" />
           <element id="library" level="project" name="Gradle: org.codehaus.groovy:groovy-json:2.4.11" />
@@ -138,12 +131,18 @@
           <element id="library" level="project" name="Gradle: org.grails:grails-web-taglib:3.3.0" />
           <element id="library" level="project" name="Gradle: opensymphony:sitemesh:2.4" />
           <element id="library" level="project" name="Gradle: commons-validator:commons-validator:1.5.1" />
-          <element id="library" level="project" name="Gradle: javax.validation:validation-api:1.1.0.Final" />
           <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
-          <element id="library" level="project" name="Gradle: commons-collections:commons-collections:3.2.2" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/antlr/antlr/2.7.7/antlr-2.7.7.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.6/commons-lang-2.6.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.2/commons-logging-1.2.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/yaml/snakeyaml/1.17/snakeyaml-1.17.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/transaction/jta/1.1/jta-1.1.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar" />
         </element>
       </element>
-      <element id="javaee-facet-resources" facet="VAMP_WebApp_main/web/Web Gradle : VAMP_WebApp-0.1.war" />
     </root>
   </artifact>
 </component>
