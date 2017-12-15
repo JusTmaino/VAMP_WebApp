@@ -7,5 +7,7 @@ class Location {
     static belongsTo = [car:Car]
 
     static constraints = {
+        longitude nullable:false
+        latitude nullable:false
     }
 }

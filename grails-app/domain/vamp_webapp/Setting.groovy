@@ -7,5 +7,8 @@ class Setting {
     Integer sound;
 
     static constraints = {
+        temp_clim nullable:false
+        retro_pos nullable:false
+        sound nullable:false
     }
 }
