@@ -6,30 +6,15 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
-    <button class="btn btn-primary btn-round" >
-        <a href="${createLink(uri: '/')}" style="color: white">
-            <i class="material-icons">home</i> Home
-        </a>
-    </button>
-    <button class="btn btn-primary btn-round" >
-        <g:link class="create" action="create"><g:message args="[entityName]"/><i class="material-icons"
-                                                                                  style="color: white">add</i></g:link>
-    </a>
-    </button>
 
-    <button class="btn btn-primary btn-round" >
-        <g:link class="list" action="index"><g:message args="[entityName]"/><i class="material-icons"
-                                                                               style="color: white">list</i></g:link>
-    </a>
-    </button>
 
     <div id="profile-page-header" class="card">
         <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="../../images/gallary/23.png" alt="user background">
+            <asset:image src="abc.jpg" class="activator" alt="user background"/>
         </div>
         <figure class="card-profile-image">
             <g:if test="${user.image != null}">
-                <img src="${grailsApplication.config.server.pathServer}/images/users/${user.image.name}" alt="profile image" class="circle z-depth-2 responsive-img activator gradient-45deg-light-blue-cyan gradient-shadow">
+                <img src="${grailsApplication.config.server.pathServer}/images/users/${user.image.path}" alt="profile image" class="circle z-depth-2 responsive-img activator gradient-45deg-light-blue-cyan gradient-shadow">
             </g:if>
             <g:else>
                 <asset:image src="placeholder.jpg"/>
@@ -58,6 +43,16 @@
                         <i class="material-icons">perm_identity</i>
                     </a>
                 </div>
+                <div class="col s12 m1 right-align">
+                    <a href="/user/edit/${user.id}"  class="btn-floating activator waves-effect waves-light rec accent-2 right">
+                        <i class="material-icons">edit</i>
+                    </a>
+                </div>
+                <div class="col s12 m12 right-align">
+                    <a class="btn-floating activator waves-effect waves-light rec accent-2 right">
+                        <i class="material-icons">delete</i>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="card-reveal">
@@ -84,6 +79,46 @@
 
         </div>
     </div>
+
+    <ul id="task-card" class="collection with-header">
+        <li class="collection-header gradient-45deg-light-blue-cyan">
+            <h4 class="task-card-title">Aboute Me</h4>
+            <p class="task-card-date">March 26, 2015</p>
+        </li>
+        <li class="collection-item avatar">
+            <i class="material-icons circle teal accent-4">directions_car</i>
+            <span class="title">Cars</span>
+            <p>Car 1
+                <br>
+                Car2
+            </p>
+            <a href="#!" class="secondary-content">
+                <i class="material-icons">car</i>
+            </a>
+        </li>
+        <li class="collection-item avatar">
+            <i class="material-icons circle cyan">assessment</i>
+            <span class="title">Profiles</span>
+            <p>Profile 1
+                <br>
+                Profile 2
+            </p>
+            <a href="#!" class="secondary-content">
+                <i class="material-icons">attach_money</i>
+            </a>
+        </li>
+        <li class="collection-item avatar">
+            <i class="material-icons circle red accent-2">play_arrow</i>
+            <span class="title">PlayListe</span>
+            <p>company management news
+                <br>
+                <span class="ultra-small">Second Line</span>
+            </p>
+            <a href="#!" class="secondary-content">
+                <i class="material-icons">track_changes</i>
+            </a>
+        </li>
+    </ul>
 
     <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_MODERATOR">
 

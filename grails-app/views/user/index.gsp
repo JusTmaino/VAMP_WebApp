@@ -14,12 +14,17 @@
             <div class="col s12 m4 l4">
                 <div id="profile-card" class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="image here" alt="user bg"/>
+                        <asset:image src="téléchargement.jpg" class="activator"  alt="user bg"/>
                     </div>
 
                     <div class="card-content">
-                        <img src="image here" alt=""
-                             class="circle responsive-img activator card-profile-image cyan lighten-1 padding-2"/>
+                        <g:if test="${user.image != null}">
+                            <img src="${grailsApplication.config.server.pathServer}/images/users/${user.image.path}" id="img"  class="circle responsive-img activator card-profile-image cyan lighten-1 padding-2" />
+                        </g:if>
+                        <g:else>
+                            <asset:image src="avatar-7.png" name="image" id="image" alt="" class="circle responsive-img activator card-profile-image cyan lighten-1 padding-2"/>
+                        </g:else>
+
                         <a href="show/${user.id}" class="btn-floating btn-move-up waves-effect waves-light deep-orange accent-2 z-depth-4 right">
                             <i class="material-icons">chevron_right</i>
                         </a>

@@ -46,9 +46,12 @@
                         <h1 class="logo-wrapper">
                             <a href="#"
                                class="brand-logo darken-1">
-                                <img src="aa"
-                                     alt="materialize logo">
-                                <span class="logo-text hide-on-med-and-down">VAMP</span>
+                                <asset:image src="vamp.png"
+                                     alt="materialize logo" style="width: 175px;
+    height: 44px;
+    margin-top: -13px;
+    margin-left: 3px;"/>
+                                <!--span class="logo-text hide-on-med-and-down">VAMP</span-->
                             </a>
                         </h1>
                     </li>
@@ -119,13 +122,14 @@
                         <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button"
                            data-activates="profile-dropdown">
                             <span class="avatar-status avatar-online">
-                                <img src="aa"
-                                     alt="avatar">
+                                <asset:image src="avatar-7.png"
+
+                                     alt="avatar"/>
                                 <i></i>
                             </span>
                         </a><ul id="profile-dropdown" class="dropdown-content">
                         <li>
-                            <a href="#"
+                            <a href="/user/show/${sec.loggedInUserInfo(field: 'id')}"
                                class="grey-text text-darken-1">
                                 <i class="material-icons">face</i> Profile</a>
                         </li>
@@ -146,7 +150,7 @@
                                 <i class="material-icons">lock_outline</i> Lock</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="/logout/index"
                                class="grey-text text-darken-1">
                                 <i class="material-icons">keyboard_tab</i> Logout</a>
                         </li>
@@ -183,8 +187,8 @@
                 <li class="user-details cyan darken-2">
                     <div class="row">
                         <div class="col col s4 m4 l4">
-                            <img src="aa" alt=""
-                                 class="circle responsive-img valign profile-image cyan">
+                            <asset:image src="avatar-7.png" alt=""
+                                         class="circle responsive-img valign profile-image cyan"/>
                         </div>
 
                         <div class="col col s8 m8 l8">
@@ -373,7 +377,7 @@
             <!--breadcrumbs end-->
             <!--start container-->
             <div class="container">
-                <p class="caption">Media can be styled in different ways using Materialize.</p>
+
                 <g:layoutBody/>
                 <!-- Floating Action Button -->
                 <!--<div class="fixed-action-btn " style="bottom: 50px; right: 19px;">

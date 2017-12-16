@@ -97,6 +97,9 @@ dataSource:
     driverClassName: org.h2.Driver
     username: sa
     password: ''
+server:
+    uploadImage: '/Applications/XAMPP/htdocs/images/'
+    pathServer: 'http://localhost:80'
 
 environments:
     development:
