@@ -105,10 +105,12 @@
 
                         <div class="row margin">
                             <div class="input-field col s12">
-                                <label class="control-label">Role</label>
                                 <div class="form-group label-floating is-empty fieldcontain required">
+                                    <label class="control-label">Role</label>
+                                    <input type="text" value="${vamp_webapp.UserRole.findByUser(user).role.authority}" disabled="true">
+                                    <p>Select the new Role</p>
                                     <g:select name="roleID" class="form-control" required="" id="role" optionKey="id" optionValue="authority" from="${vamp_webapp.Role.all}"  ></g:select>
-                                <span class="material-input"></span>
+                                    <span class="material-input"></span>
                                 </div>
                             </div>
                         </div>
