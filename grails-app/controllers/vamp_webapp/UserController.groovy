@@ -65,6 +65,16 @@ class UserController {
             return
         }
 
+        System.out.println("params : " + params)
+
+        if( (params.roleID != null) && (UserRole.findByUser(user).role != null) ) {
+            Role removedRole = Role.findById(UserRole.findByUser(user).role.id);
+            UserRole.remove(user, removedRole)
+            Role newRole = Role.findById(params.roleID);
+            UserRole.create(user, newRole, true)
+
+        }
+
         user.save flush:true
 
         request.withFormat {

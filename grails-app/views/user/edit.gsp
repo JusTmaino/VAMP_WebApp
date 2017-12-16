@@ -80,6 +80,19 @@
                         <div class="row margin">
                             <div class="input-field col s12">
                                 <div class="form-group label-floating is-empty fieldcontain required">
+                                    <label class="control-label">Password</label>
+                                    <input class="form-control" type="text" name="password" id="password"
+                                           value="${user.password}"
+                                           required="true"
+                                           aria-required="true">
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row margin">
+                            <div class="input-field col s12">
+                                <div class="form-group label-floating is-empty fieldcontain required">
                                     <label class="control-label">Telephone</label>
                                     <input class="form-control" type="text" name="tel" id="tel"
                                            value="${user.tel}"
@@ -94,20 +107,7 @@
                             <div class="input-field col s12">
                                 <label class="control-label">Role</label>
                                 <div class="form-group label-floating is-empty fieldcontain required">
-
-                                    <select name="roleId" required
-                                            id="roleId" class="selectpicker"
-                                            data-style="btn btn-info btn-round" title="Choisir un rôle">
-                                        <g:each var="role" in="${vamp_webapp.Role.all}">
-                                            <g:if test="${vamp_webapp.UserRole.findByUser(user).getRole().id == role.id}">
-                                                <option selected
-                                                        value="${role.id}">${role.authority.substring(5).toLowerCase()}</option>
-                                            </g:if>
-                                            <g:else>
-                                                <option value="${role.id}">${role.authority.substring(5).toLowerCase()}</option>
-                                            </g:else>
-                                        </g:each>
-                                    </select>
+                                    <g:select name="roleID" class="form-control" required="" id="role" optionKey="id" optionValue="authority" from="${vamp_webapp.Role.all}"  ></g:select>
                                 <span class="material-input"></span>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@
                         <div class="row margin">
                             <div class="input-field col s12">
                                 <div class="form-group label-floating is-empty fieldcontain required">
-                                    <label class="control-label">Telephone</label>
+                                    <label class="control-label">Date de Naissance</label>
                                     <input class="form-control" type="text" name="datenais" id="datenais"
                                            value="${user.datenais}"
                                            required="true"
