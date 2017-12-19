@@ -6,9 +6,11 @@ class BootStrap {
         def adminRole = new Role(authority: 'ROLE_ADMIN').save(Flush: true, failOnError: true);
         def userRole = new Role(authority: 'ROLE_USER').save(Flush: true, failOnError: true);
 
-        def image = new Image(path: 'avatar-7.png')
-        def userImage = new Image(path: 'user.jpg')
+        def image = new Image(path: 'avatar-7.png').save(Flush: true, failOnError: true);
+        def userImage = new Image(path: 'user.jpg').save(Flush: true, failOnError: true);
         def car_image = new Image(path: 'car.png').save(Flush: true, failOnError: true);
+        def adminCar_image = new Image(path: 'mercedesClassC.png').save(Flush: true, failOnError: true);
+        def adminCar_image1 = new Image(path: 'mercedesClassE.png').save(Flush: true, failOnError: true);
 
         def play = new PlayList(name: "Playlist1");
         def play1 = new PlayList(name: "Playlist2");
@@ -21,8 +23,10 @@ class BootStrap {
 
         def profile = new Profile(temp_clim : 1 ,retro_pos : 1, sound:0)
         def car2 = new Car( brand : 'Peugeot', model : 'Ion', matricule : 'fhn', nb_place : 4, charge : 50, temperature_ext : 30).save(Flush: true, failOnError: true);
-        def car1 = new Car( brand : 'renault', model : 'class e', matricule : 'fhn', nb_place : 4, charge : 50, temperature_ext : 30).save(Flush: true, failOnError: true);
-        def car = new Car( brand : 'mercedes', model : 'class e', matricule : 'fhn', nb_place : 4, charge : 50, temperature_ext : 30).save(Flush: true, failOnError: true);
+        def car1 = new Car( brand : 'mercedes', model : 'class E', matricule : 'fhn', nb_place : 4, charge : 50, temperature_ext : 30).save(Flush: true, failOnError: true);
+        def car = new Car( brand : 'mercedes', model : 'class C', matricule : 'fhn', nb_place : 4, charge : 50, temperature_ext : 30).save(Flush: true, failOnError: true);
+        car.addToImages(adminCar_image).save(Flush: true, failOnError: true);
+        car1.addToImages(adminCar_image1).save(Flush: true, failOnError: true);
         car2.addToImages(car_image).save(Flush: true, failOnError: true);
 
         profile.addToPlaylists(play)
