@@ -32,7 +32,7 @@
 			<div class="row">
 				<div class="input-field col s12 center">
 					<img src="logo here" alt="" class="circle responsive-img valign profile-image-login">
-					<p class="center login-form-text">VAMP</p>
+					<h3>VAMP</h3>
 				</div>
 				<g:if test='${flash.message}'>
 					<div class="login_message">${flash.message}</div>
@@ -49,7 +49,7 @@
 				<div class="input-field col s12">
 					<i class="material-icons prefix pt-5">lock_outline</i>
 					<input name="${passwordParameter ?: 'password'}" id="password" type="password">
-					<label for="password">Mot de passe</label>
+					<label for="password" class="center-align">Mot de passe</label>
 				</div>
 			</div>
 			<div class="row">

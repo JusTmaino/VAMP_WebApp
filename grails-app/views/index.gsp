@@ -45,22 +45,76 @@
         </li>
     </content>
 
-    <div class="svg" role="presentation">
-        <div class="grails-logo-container">
-            <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
-        </div>
-    </div>
+        <g:each var="car" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getCars()}">
+            <div class="col s12 m12 l4 item">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <a href="#">
+                             <g:each var="img" in="${car.getImages().findAll()}">
+                                <img src="${grailsApplication.config.server.pathServer}/images/cars/${img.path}"
+                                 alt="item-img">
+                             </g:each>
+                        </a>
+                        <h4 class="card-title text-shadow m-0">${car.brand}</h4>
+                    </div>
+                    <ul class="card-action-buttons">
+                        <li>
+                            <a class="btn-floating waves-effect waves-light red accent-2">
+                                <i class="material-icons activator">info_outline</i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="card-content">
+                        <a href="#!"></a>
+                        <p class="row mb-1">
+                            <small class="right">
+                                <a href="#!">
+
+                                    <span class="new badge cyan m-0" data-badge-caption="Register date"></span>
+                                </a>
+                            </small>
+                            <small class="left">18th June, 2017</small>
+                        </p>
+                        <p class="item-post-content">${car.model}</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            <i class="material-icons right">close</i> Apple MacBook Pro A1278 13"</span>
+                        <p>Here is some more information about this item that is only revealed once clicked on.</p>
+                    </div>
+                </div>
+            </div>
+        </g:each>
+
+<ul id="task-card" class="collection with-header">
+    <li class="collection-header gradient-45deg-light-blue-cyan">
+        <h4 class="task-card-title">PlayList</h4>
+    </li>
+<g:each var="profile" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
+    <g:each var="play" in="${profile.getPlaylists().findAll()}">
+        <a href="#!">
+        <li class="collection-item avatar">
+            <i class="material-icons circle cyan" style="margin-top: 10px">assessment</i>
+            <br>
+            <span class="title">${play.name}</span>
+        </li>
+            <li class="divider"></li>
+        </a>
+    </g:each>
+</g:each>
+    <!--li class="collection-item avatar">
+        <i class="material-icons circle cyan">assessment</i>
+        <audio id="audio" preload="" tabindex="0" controls type="audio/mp3" autoplay>
+            <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mp3">
+        </audio>
+        <a href="#!" class="secondary-content">
+            <i class="material-icons">track_changes</i>
+        </a>
+    </li>
+</ul>
 
     <div id="content" role="main">
         <section class="row colset-2-its">
-            <h1>Welcome to Grails</h1>
-
-            <p>
-                Congratulations, you have successfully started your first Grails application! At the moment
-                this is the default page, feel free to modify it to either redirect to a controller or display
-                whatever content you may choose. Below is a list of controllers that are currently deployed in
-                this application, click on each to execute its default action:
-            </p>
 
             <div id="controllers" role="navigation">
                 <h2>Available Controllers:</h2>

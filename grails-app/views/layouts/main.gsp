@@ -48,8 +48,8 @@
                                class="brand-logo darken-1">
                                 <asset:image src="vamp.png"
                                      alt="materialize logo" style="width: 175px;
-    height: 44px;
-    margin-top: -13px;
+    height: 97px;
+    margin-top: -23px;
     margin-left: 3px;"/>
                                 <!--span class="logo-text hide-on-med-and-down">VAMP</span-->
                             </a>
@@ -122,7 +122,7 @@
                         <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button"
                            data-activates="profile-dropdown">
                             <span class="avatar-status avatar-online">
-                                <asset:image src="avatar-7.png"
+                                <img src="${grailsApplication.config.server.pathServer}/images/users/${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).image.path}"
 
                                      alt="avatar"/>
                                 <i></i>
@@ -138,17 +138,9 @@
                                class="grey-text text-darken-1">
                                 <i class="material-icons">settings</i> Settings</a>
                         </li>
-                        <li>
-                            <a href="#"
-                               class="grey-text text-darken-1">
-                                <i class="material-icons">live_help</i> Help</a>
-                        </li>
+
                         <li class="divider"></li>
-                        <li>
-                            <a href="#"
-                               class="grey-text text-darken-1">
-                                <i class="material-icons">lock_outline</i> Lock</a>
-                        </li>
+
                         <li>
                             <a href="/logout/index"
                                class="grey-text text-darken-1">
@@ -187,7 +179,7 @@
                 <li class="user-details cyan darken-2">
                     <div class="row">
                         <div class="col col s4 m4 l4">
-                            <asset:image src="avatar-7.png" alt=""
+                            <img src="${grailsApplication.config.server.pathServer}/images/users/${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).image.path}" alt=""
                                          class="circle responsive-img valign profile-image cyan"/>
                         </div>
 
@@ -195,30 +187,15 @@
 
                             <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn"
                                href="#"
-                               data-activates="profile-dropdown-nav">John Doe<i
-                                    class="mdi-navigation-arrow-drop-down right"></i></a><ul id="profile-dropdown-nav"
+                               data-activates="profile-dropdown-nav">${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).fullName}
+                                <i class="mdi-navigation-arrow-drop-down right"></i></a><ul id="profile-dropdown-nav"
                                                                                              class="dropdown-content">
                             <li>
-                                <a href="#"
+                                <a href="/user/show/${sec.loggedInUserInfo(field: 'id')}"
                                    class="grey-text text-darken-1">
                                     <i class="material-icons">face</i> Profile</a>
                             </li>
-                            <li>
-                                <a href="#"
-                                   class="grey-text text-darken-1">
-                                    <i class="material-icons">settings</i> Settings</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                   class="grey-text text-darken-1">
-                                    <i class="material-icons">live_help</i> Help</a>
-                            </li>
                             <li class="divider"></li>
-                            <li>
-                                <a href="#"
-                                   class="grey-text text-darken-1">
-                                    <i class="material-icons">lock_outline</i> Lock</a>
-                            </li>
                             <li>
                                 <a href="#"
                                    class="grey-text text-darken-1">
@@ -277,7 +254,7 @@
                                     <ul class="nav" id="profiles">
                                         <g:each var="cat" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
                                             <li style="text-align: center">
-                                                <a href="/car/show/${cat.id}"><span
+                                                <a href="/profile/show/${cat.id}"><span
                                                         class="sidebar-normal">profile ${cat.getId()}</span>
                                                 </a>
                                             </li>
