@@ -4,15 +4,14 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'playList.label', default: 'PlayList')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <asset:javascript src="uploadr.manifest.js"/>
+        <asset:javascript src="uploadr.demo.manifest.js"/>
+        <asset:stylesheet href="uploadr.manifest.css"/>
+        <asset:stylesheet href="uploadr.demo.manifest.css"/>
+        <asset:stylesheet href="application.css"/>
     </head>
     <body>
-        <a href="#create-playList" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
+
         <div id="create-playList" class="content scaffold-create" role="main">
             <h1><g:message code="default.create.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
@@ -25,14 +24,28 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.playList}" method="POST">
+            <g:uploadForm action="save" method="post" class="form-horizontal" enctype="multipart/form-data" resource="${this.playList}" >
                 <fieldset class="form">
-                    <f:all bean="playList"/>
+
+                    <f:all bean="playList" except="medias"/>
+                    <br><br>
+                    <div>
+                        <label >Music to upload:</label>
+                        <div class="container" style=" width: 100%">
+                            <input type="file" name="files"  multiple>
+                        </div>
+                    </div>
+                    <br><br>
                 </fieldset>
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>
-            </g:form>
+            </g:uploadForm>
         </div>
+<g:javascript>
+        $(document).ready(function () {
+            $('input[type="file"]').imageuploadify();
+        })
+</g:javascript>
     </body>
 </html>

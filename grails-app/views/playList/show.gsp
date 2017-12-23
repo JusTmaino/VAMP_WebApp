@@ -6,20 +6,41 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
-        <a href="#show-playList" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
+
         <div id="show-playList" class="content scaffold-show" role="main">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:display bean="playList" />
+            <div class="col s12 m12 l6">
+                <ul id="issues-collection" class="collection z-depth-1">
+                    <li class="collection-item avatar">
+                        <div class="col s12 m1 right-align">
+                            <a href="/playList/edit/${playList.id}" class="btn-floating activator waves-effect waves-light rec accent-2 right">
+                                <i class="material-icons">edit</i>
+                            </a>
+                        </div>
+                        <i class="material-icons red accent-2 circle">bug_report</i>
+                        <h4 class="collection-header m-0">${playList.name}</h4>
+                    </li>
+<g:each var="media" in="${playList.getMedias().findAll()}">
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s7">
+                                <p class="collections-title">
+                                    <strong>${media.url}</strong></p>
+                            </div>
+
+                            <div class="col s2">
+                                <audio id="audio" preload="" tabindex="0" controls type="audio/mp3">
+                                    <source src="${grailsApplication.config.server.pathServer}/images/media/${media.url}" type="audio/mp3">
+                                </audio>
+                            </div>
+                        </div>
+                    </li>
+</g:each>
+                </ul>
+            </div>
             <g:form resource="${this.playList}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${this.playList}"><g:message code="default.button.edit.label" default="Edit" /></g:link>

@@ -35,8 +35,24 @@ class PlayListController {
             return
         }
 
-        playList.save flush:true
+        /*if (!request.getFile('file').empty){
+            def file = request.getFile('file')
+            def type = file.contentType.toString()
+            type = type.substring(type.indexOf("/")+1,type.length())
 
+            def name = file.originalFilename
+            playList.addToMedias(new Media(url: name))
+            file.transferTo(new java.io.File(grailsApplication.config.server.uploadImage+'media/'+name))
+        }*/
+
+        request.getMultiFileMap().files.each {
+            def name = it.originalFilename
+            playList.addToMedias(new Media(url: name))
+            it.transferTo(new java.io.File(grailsApplication.config.server.uploadImage +'media/'+ name))
+        }
+
+        playList.save flush:true
+        //vamp_webapp.User.findById(${sec.loggedInUserInfo(field: 'id')})
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'playList.label', default: 'PlayList'), playList.id])

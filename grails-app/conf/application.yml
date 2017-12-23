@@ -68,6 +68,9 @@ grails:
             maxsize: 1000
     controllers:
         defaultScope: singleton
+        upload:
+            maxFileSize: 2000000
+            maxRequestSize: 2000000
     converters:
         encoding: UTF-8
     views:
@@ -98,7 +101,7 @@ dataSource:
     username: sa
     password: ''
 server:
-    uploadImage: '/Applications/XAMPP/htdocs/images/'
+    uploadImage: 'C:/XAMPP/htdocs/images/'
     pathServer: 'http://localhost:80'
 
 environments:

@@ -6,20 +6,36 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
-        <a href="#show-car" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
         <div id="show-car" class="content scaffold-show" role="main">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:display bean="car" />
+                <div class="col s12">
+                    <div class="card horizontal">
+                        <div class="card-image width-65">
+                            <g:each var="img" in="${car.getImages().findAll()}">
+                                <img src="${grailsApplication.config.server.pathServer}/images/cars/${img.path}"
+                                     alt="item-img">
+                            </g:each>
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p><h5>Brand : ${car.brand}</h5></p>
+                                <p><h5>Model : ${car.model}</h5></p>
+                                <p><h5>Matricule : ${car.matricule}</h5></p>
+                                <p><h5>Nombre de place : ${car.nb_place}</h5></p>
+                                <p><h5>Charge : ${car.charge}</h5></p>
+                                <p><h5>Temperature Externe : ${car.temperature_ext}</h5></p>
+                                <p><h5>Locked : ${car.locked}</h5></p>
+
+                                <a href="/car/edit/${car.id}" class="btn-floating activator waves-effect waves-light rec accent-2 right red">
+                                    <i class="material-icons">edit</i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             <g:form resource="${this.car}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${this.car}"><g:message code="default.button.edit.label" default="Edit" /></g:link>

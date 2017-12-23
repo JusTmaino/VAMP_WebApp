@@ -20,11 +20,16 @@
     <asset:stylesheet src="prism.css" />
     <asset:stylesheet src="perfect-scrollbar.css"/>
     <asset:stylesheet src="flag-icon.min.css"/>
+    <asset:stylesheet href="imageuploadify.min.css"/>
+    <asset:stylesheet src="font-awesome.min.css"/>
+    <asset:stylesheet href="application.css"/>
+
     <!-- jQuery Library -->
+    <asset:javascript src="imageuploadify.min.js"/>
     <asset:javascript src="jquery-3.2.1.min.js"/>
 </head>
 
-<body class="loaded">
+<body class="layout-dark loaded">
 <!-- Start Page Loading -->
 <div id="loader-wrapper">
     <div id="loader"></div>
@@ -38,8 +43,8 @@
 <!-- START HEADER -->
 <header id="header" class="page-topbar">
     <!-- start header nav-->
-    <div class="navbar-fixed">
-        <nav class="navbar-color">
+    <div class="navbar-fixed ">
+        <nav class="navbar-color  darken-2">
             <div class="nav-wrapper">
                 <ul class="left">
                     <li>
@@ -174,9 +179,9 @@
     <div class="wrapper">
         <!-- START LEFT SIDEBAR NAV-->
         <aside id="left-sidebar-nav">
-            <ul id="slide-out" class="side-nav fixed leftside-navigation ps-container ps-active-y"
+            <ul id="slide-out" class="side-nav fixed leftside-navigation ps-container ps-active-y materialize-red darken-2"
                 style="transform: translateX(0%);">
-                <li class="user-details cyan darken-2">
+                <li class="user-details black-overlay darken-2">
                     <div class="row">
                         <div class="col col s4 m4 l4">
                             <img src="${grailsApplication.config.server.pathServer}/images/users/${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).image.path}" alt=""
@@ -211,7 +216,7 @@
 
 
 
-                <li class="no-padding">
+                <li class="no-padding ">
                     <ul class="collapsible" data-collapsible="accordion">
                         <li class="bold">
                             <a href="/"

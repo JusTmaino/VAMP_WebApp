@@ -12,8 +12,15 @@ class BootStrap {
         def adminCar_image = new Image(path: 'mercedesClassC.png').save(Flush: true, failOnError: true);
         def adminCar_image1 = new Image(path: 'mercedesClassE.png').save(Flush: true, failOnError: true);
 
+        def media1 = new Media(url:"Charlie Puth - One Call Away.mp3");
+        def media2 = new Media(url:"Charlie Puth - We Dont Talk Anymore.mp3");
+        def media3 = new Media(url:"DJ Snake ft. Justin Bieber - Let Me Love You.mp3");
+
         def play = new PlayList(name: "Playlist1");
+        play.addToMedias(media1).save(Flush: true, failOnError: true);
+        play.addToMedias(media2).save(Flush: true, failOnError: true);
         def play1 = new PlayList(name: "Playlist2");
+        play1.addToMedias(media3).save(Flush: true, failOnError: true);
 
         def adminUser = new User(username: 'admin', password: 'password', fullName: 'surname1' , datenais: new Date(), tel: 123 , mail:'mail@', image: image).save(Flush: true, failOnError: true);
         def adminUser1 = new User(username: 'admin1', password: 'password', fullName: 'surname' , datenais: new Date(), tel: 123 , mail:'mail@').save(Flush: true, failOnError: true);

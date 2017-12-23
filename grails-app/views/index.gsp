@@ -49,7 +49,7 @@
             <div class="col s12 m12 l4 item">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <a href="#">
+                        <a href="/car/show/${car.id}">
                              <g:each var="img" in="${car.getImages().findAll()}">
                                 <img src="${grailsApplication.config.server.pathServer}/images/cars/${img.path}"
                                  alt="item-img">
@@ -65,7 +65,7 @@
                         </li>
                     </ul>
                     <div class="card-content">
-                        <a href="#!"></a>
+                        <a href="#"></a>
                         <p class="row mb-1">
                             <small class="right">
                                 <a href="#!">
@@ -92,7 +92,7 @@
     </li>
 <g:each var="profile" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
     <g:each var="play" in="${profile.getPlaylists().findAll()}">
-        <a href="#!">
+        <a href="/playList/show/${play.id}">
         <li class="collection-item avatar">
             <i class="material-icons circle cyan" style="margin-top: 10px">assessment</i>
             <br>
