@@ -3,7 +3,7 @@ package vamp_webapp
 class Profile {
 
 
-    static hasMany = [playlists:PlayList,settings:Setting]
+    static hasMany = [playlists:PlayList]
     static belongsTo = [user:User]
 
     static constraints = {

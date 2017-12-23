@@ -208,7 +208,7 @@
                             </li>
                         </ul>
 
-                            <p class="user-roal">Administrator</p>
+                            <p class="user-roal">${vamp_webapp.UserRole.findByUser(vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id'))).role.authority}</p>
                         </div>
                     </div>
                 </li>
@@ -252,7 +252,7 @@
                                 <a class="collapsible-header waves-effect waves-cyan" href="#">
                                     <i class="material-icons">mood</i>
 
-                                    <span class="nav-text">My profiles</span>
+                                    <span class="nav-text">My Preferences</span>
                                 </a>
                                 <div class="collapsible-body">
 

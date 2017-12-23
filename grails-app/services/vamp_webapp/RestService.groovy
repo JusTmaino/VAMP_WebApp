@@ -2,6 +2,8 @@ package vamp_webapp
 
 import grails.gorm.transactions.Transactional
 import grails.plugins.rest.client.RestBuilder
+import org.springframework.util.LinkedMultiValueMap
+import org.springframework.util.MultiValueMap
 
 @Transactional
 class RestService {
@@ -9,12 +11,33 @@ class RestService {
     /*********************************************  USERS  *******************************************************/
     def getUsers() {
 
-        def urlTemplate = "http://localhost:1337/user"
+        def username = 'utilisateur2@gmail.com';
+        def password = 'utilisateur2';
+
+        def urllogin = "http://localhost:1337/user/login?email={email}&password={password}"
+        def params = [email: username, password:password]
+
+        def resplogin = new RestBuilder().get(urllogin,params) {
+
+        }
+        System.out.println("Response ON Login : "+resplogin.json)
+
+
+
+        /*def urlTemplate = "http://localhost:1337/user/login"
+
+        MultiValueMap<String, String> form = new LinkedMultiValueMap<String, String>()
+        form.add("grant_type", "password")
+        form.add("email", username)
+        form.add("password", password)
 
         def resp = new RestBuilder().get(urlTemplate) {
             //auth username, password
+            accept("application/json")
+            contentType("application/x-www-form-urlencoded")
+            body(form)
         }
-        System.out.println(resp.json)
+        System.out.println("Response : "+resp.json)*/
     }
 
     def getUser(String idUser) {

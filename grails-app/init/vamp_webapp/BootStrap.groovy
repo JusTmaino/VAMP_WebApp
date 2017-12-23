@@ -16,10 +16,10 @@ class BootStrap {
         def media2 = new Media(url:"Charlie Puth - We Dont Talk Anymore.mp3");
         def media3 = new Media(url:"DJ Snake ft. Justin Bieber - Let Me Love You.mp3");
 
-        def play = new PlayList(name: "Playlist1");
+        def play = new PlayList(name: "Playlist1",sound: 12);
         play.addToMedias(media1).save(Flush: true, failOnError: true);
         play.addToMedias(media2).save(Flush: true, failOnError: true);
-        def play1 = new PlayList(name: "Playlist2");
+        def play1 = new PlayList(name: "Playlist2",sound: 10);
         play1.addToMedias(media3).save(Flush: true, failOnError: true);
 
         def adminUser = new User(username: 'admin', password: 'password', fullName: 'surname1' , datenais: new Date(), tel: 123 , mail:'mail@', image: image).save(Flush: true, failOnError: true);
@@ -28,7 +28,7 @@ class BootStrap {
         def adminUser3 = new User(username: 'admin3', password: 'password', fullName: 'surname' , datenais: new Date(), tel: 123 , mail:'mail@').save(Flush: true, failOnError: true);
         def userUser = new User(username: 'user', password: 'password',fullName: 'surname' , datenais: new Date(), tel: 123 , mail:'mail@', image: userImage).save(Flush: true, failOnError: true);
 
-        def profile = new Profile(temp_clim : 1 ,retro_pos : 1, sound:0)
+        def profile = new Profile()
         def car2 = new Car( brand : 'Peugeot', model : 'Ion', matricule : 'fhn', nb_place : 4, charge : 50, temperature_ext : 30).save(Flush: true, failOnError: true);
         def car1 = new Car( brand : 'mercedes', model : 'class E', matricule : 'fhn', nb_place : 4, charge : 50, temperature_ext : 30).save(Flush: true, failOnError: true);
         def car = new Car( brand : 'mercedes', model : 'class C', matricule : 'fhn', nb_place : 4, charge : 50, temperature_ext : 30).save(Flush: true, failOnError: true);
