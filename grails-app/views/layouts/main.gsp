@@ -198,18 +198,20 @@
                             <li>
                                 <a href="/user/show/${sec.loggedInUserInfo(field: 'id')}"
                                    class="grey-text text-darken-1">
-                                    <i class="material-icons">face</i> Profile</a>
+                                    <i class="material-icons grey-text text-darken-1">face</i> Profile</a>
                             </li>
                             <li class="divider"></li>
                             <li>
                                 <a href="#"
                                    class="grey-text text-darken-1">
-                                    <i class="material-icons">keyboard_tab</i> Logout</a>
+                                    <i class="material-icons grey-text text-darken-1">keyboard_tab</i> Logout</a>
                             </li>
                         </ul>
 
-                            <p class="user-roal">${vamp_webapp.UserRole.findByUser(vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id'))).role.authority}</p>
-                        </div>
+                            <p class="user-roal">
+                                <sec:ifAnyGranted roles="ROLE_ADMIN"><span class="label label-rose">Administrator</span></sec:ifAnyGranted>
+                                <sec:ifAnyGranted roles="ROLE_USER"><span class="label label-info">User</span></sec:ifAnyGranted>
+                            </p>                        </div>
                     </div>
                 </li>
 

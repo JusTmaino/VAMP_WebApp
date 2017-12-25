@@ -42,10 +42,15 @@
                 </ul>
             </div>
             <g:form resource="${this.playList}" method="DELETE">
-                <fieldset class="buttons">
-                    <g:link class="edit" action="edit" resource="${this.playList}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                    <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                </fieldset>
+
+                    <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"  style="margin-left: 45%;
+                background-color: #b9151b;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                border-radius: 8px;
+                margin-bottom: 10px;"/>
+
             </g:form>
         </div>
     </body>

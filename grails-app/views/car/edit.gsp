@@ -6,16 +6,8 @@
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
-        <a href="#edit-car" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
+
         <div id="edit-car" class="content scaffold-edit" role="main">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
@@ -26,15 +18,50 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.car}" method="PUT">
+            <g:uploadForm action="save" resource="${this.car}" method="PUT" class="form-horizontal" enctype="multipart/form-data">
+                <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col s12 z-depth-4 card-panel">
+
+                            <div class="row">
+                                <div class="input-field col s12 center">
+                                    <h4 >Update Your Car</h4>
+                                </div>
+                            </div>
+
                 <g:hiddenField name="version" value="${this.car?.version}" />
                 <fieldset class="form">
-                    <f:all bean="car"/>
+                            <div class="carousel" style="margin-top: -30px;margin-bottom: -10px">
+                                <g:each var="img" in="${car.getImages().findAll()}">
+                                    <a class="carousel-item" href="#five!"><img src="${grailsApplication.config.server.pathServer}/images/cars/${img.path}" alt="item-img"></a>
+                                </g:each>
+                            </div>
+                            <div class="col-lg-offset-1" style="margin-top:5px;">
+                                <div class="container" style=" width: 100%">
+                                    <input type="file" name="files"  multiple>
+                                </div>
+                            </div>
+
+                    <f:all bean="car" except="images" />
                 </fieldset>
-                <fieldset class="buttons">
-                    <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-                </fieldset>
-            </g:form>
+                            <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" style="margin-left: 45%;
+                            background-color: #b9151b;
+                            border: none;
+                            color: white;
+                            padding: 15px 32px;
+                            border-radius: 8px;
+                            margin-bottom: 10px;" />
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <script type='text/javascript'>
+                    $(document).ready(function(){
+                        $('.carousel').carousel();
+                    });
+                </script>
+            </g:uploadForm>
         </div>
     </body>
 </html>

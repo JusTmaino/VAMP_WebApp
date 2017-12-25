@@ -44,16 +44,24 @@
             </ul>
         </li>
     </content>
-
+<br>
+<div class="row">
         <g:each var="car" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getCars()}">
             <div class="col s12 m12 l4 item">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                         <a href="/car/show/${car.id}">
-                             <g:each var="img" in="${car.getImages().findAll()}">
-                                <img src="${grailsApplication.config.server.pathServer}/images/cars/${img.path}"
-                                 alt="item-img">
-                             </g:each>
+                            <div class="carousel carousel-slider center" data-indicators="true" style="width: 340px;height: 345px;">
+
+                                <g:each var="img" in="${car.getImages().findAll()}">
+                                    <div class="carousel-item red white-text" href="#one!">
+                                        <img src="${grailsApplication.config.server.pathServer}/images/cars/${img.path}"
+                                             alt="item-img">
+                                        <h2>First Panel</h2>
+                                        <p class="white-text">This is your first panel</p>
+                                    </div>
+                                </g:each>
+                            </div>
                         </a>
                         <h4 class="card-title text-shadow m-0">${car.brand}</h4>
                     </div>
@@ -85,6 +93,7 @@
                 </div>
             </div>
         </g:each>
+</div>
 
 <ul id="task-card" class="collection with-header">
     <li class="collection-header gradient-45deg-light-blue-cyan">
@@ -119,15 +128,15 @@
             <div id="controllers" role="navigation">
                 <h2>Available Controllers:</h2>
                 <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller">
-                            <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
-                        </li>
-                    </g:each>
+
                 </ul>
             </div>
         </section>
-    </div>
-
+    </div-->
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            $('.carousel.carousel-slider').carousel({fullHeight: true});
+        });
+    </script>
 </body>
 </html>

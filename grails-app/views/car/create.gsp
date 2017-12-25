@@ -6,15 +6,8 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-        <a href="#create-car" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
+
         <div id="create-car" class="content scaffold-create" role="main">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
@@ -25,14 +18,42 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.car}" method="POST">
-                <fieldset class="form">
-                    <f:all bean="car"/>
+                <g:uploadForm action="save" resource="${this.car}" class="form-horizontal" enctype="multipart/form-data">
+                    <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col s12 z-depth-4 card-panel">
+
+                                <div class="row">
+                                    <div class="input-field col s12 center">
+                                        <h4 >Create Car</h4>
+                                    </div>
+                                </div>
+
+                    <g:hiddenField name="version" value="${this.car?.version}" />
+                    <fieldset class="form">
+
+                        <div class="col-lg-offset-1" style="margin-top:5px;">
+                            <label>Car image</label>
+                            <div class="container" style=" width: 100%">
+                                <input type="file" name="files"  multiple>
+                            </div>
+                        </div>
+                    <f:all bean="car" except="images"/>
                 </fieldset>
-                <fieldset class="buttons">
-                    <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-                </fieldset>
-            </g:form>
+
+                    <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" style="background-color: #4caf9c;
+                                    border: none;
+                                    color: white;
+                                    padding: 15px 32px;
+                                    border-radius: 8px;
+                                    margin-bottom: 10px;" />
+
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                </g:uploadForm>
         </div>
     </body>
 </html>

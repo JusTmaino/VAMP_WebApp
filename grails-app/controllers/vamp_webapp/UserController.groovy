@@ -5,7 +5,7 @@ import grails.transaction.Transactional
 
 class UserController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: ["PUT","POST"], delete: "DELETE"]
 
     def index(Integer max) {
         RestService rs = new RestService()
@@ -36,6 +36,16 @@ class UserController {
             return
         }
 
+        if (!request.getFile('file').empty){
+            def file = request.getFile('file')
+            def type = file.contentType.toString()
+            type = type.substring(type.indexOf("/")+1,type.length())
+
+            def name = user.username.toString()
+            user.image = new Image(path: name+'.'+type)
+            file.transferTo(new java.io.File(grailsApplication.config.server.uploadImage + '/users/'+ name+'.'+type))
+        }
+
         user.save flush:true
 
         request.withFormat {
@@ -63,6 +73,16 @@ class UserController {
             transactionStatus.setRollbackOnly()
             respond user.errors, view:'edit'
             return
+        }
+
+        if (!request.getFile('file').empty){
+            def file = request.getFile('file')
+            def type = file.contentType.toString()
+            type = type.substring(type.indexOf("/")+1,type.length())
+
+            def name = user.username.toString()
+            user.image = new Image(name: name+'.'+type)
+            file.transferTo(new java.io.File(grailsApplication.config.server.uploadImage + '/users/'+ name+'.'+type))
         }
 
         System.out.println("params : " + params)

@@ -88,9 +88,11 @@
         <li class="collection-item avatar">
             <i class="material-icons circle teal accent-4">directions_car</i>
             <span class="title">Cars</span>
-            <p>Car 1
-                <br>
-                Car2
+            <p>
+                <g:each var="car" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getCars()}">
+                    ${car.brand} ${car.model}
+                    <br>
+                </g:each>
             </p>
             <a href="#!" class="secondary-content">
                 <i class="material-icons">car</i>
@@ -98,21 +100,24 @@
         </li>
         <li class="collection-item avatar">
             <i class="material-icons circle cyan">assessment</i>
-            <span class="title">Profiles</span>
-            <p>Profile 1
-                <br>
-                Profile 2
+            <span class="title"> Profiles</span>
+            <p>
+                <g:each var="p" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
+                    profile
+                    <br>
+                </g:each>
             </p>
-            <a href="#!" class="secondary-content">
-                <i class="material-icons">attach_money</i>
-            </a>
         </li>
         <li class="collection-item avatar">
             <i class="material-icons circle red accent-2">play_arrow</i>
             <span class="title">PlayListe</span>
-            <p>company management news
-                <br>
-                <span class="ultra-small">Second Line</span>
+            <p>
+                <g:each var="p" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
+                    <g:each var="play" in="${p.getPlaylists().findAll()}">
+                        ${play.name}
+                        <br>
+                    </g:each>
+                </g:each>
             </p>
             <a href="#!" class="secondary-content">
                 <i class="material-icons">track_changes</i>
@@ -120,7 +125,7 @@
         </li>
     </ul>
 
-    <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_MODERATOR">
+    <sec:ifAnyGranted roles="ROLE_ADMIN">
 
             <g:form resource="${user}" method="DELETE">
 

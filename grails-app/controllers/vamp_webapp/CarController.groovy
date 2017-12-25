@@ -2,11 +2,12 @@ package vamp_webapp
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import vamp_webapp.User
 
 @Transactional(readOnly = true)
 class CarController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: ["PUT","POST"], delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -35,7 +36,14 @@ class CarController {
             return
         }
 
+        request.getMultiFileMap().files.each {
+            def name = it.originalFilename
+            car.addToImages(new Image(path: name))
+            it.transferTo(new java.io.File(grailsApplication.config.server.uploadImage +'cars/'+ name))
+        }
+
         car.save flush:true
+        User.findById(sec.loggedInUserInfo(field: 'id')).addToCars(car).save flush:true
 
         request.withFormat {
             form multipartForm {
@@ -62,6 +70,12 @@ class CarController {
             transactionStatus.setRollbackOnly()
             respond car.errors, view:'edit'
             return
+        }
+
+        request.getMultiFileMap().files.each {
+            def name = it.originalFilename
+            car.addToImages(new Image(path: name))
+            it.transferTo(new java.io.File(grailsApplication.config.server.uploadImage +'cars/'+ name))
         }
 
         car.save flush:true

@@ -6,7 +6,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class PlayListController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: ["PUT","POST"], delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -78,6 +78,12 @@ class PlayListController {
             transactionStatus.setRollbackOnly()
             respond playList.errors, view:'edit'
             return
+        }
+
+        request.getMultiFileMap().files.each {
+            def name = it.originalFilename
+            playList.addToMedias(new Media(url: name))
+            it.transferTo(new java.io.File(grailsApplication.config.server.uploadImage +'media/'+ name))
         }
 
         playList.save flush:true
