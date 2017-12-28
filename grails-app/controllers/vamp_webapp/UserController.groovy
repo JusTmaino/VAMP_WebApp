@@ -1,5 +1,7 @@
 package vamp_webapp
 
+import grails.plugins.rest.client.RestBuilder
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -8,8 +10,6 @@ class UserController {
     static allowedMethods = [save: "POST", update: ["PUT","POST"], delete: "DELETE"]
 
     def index(Integer max) {
-        RestService rs = new RestService()
-        rs.getUsers()
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userCount: User.count()]
     }
@@ -24,6 +24,7 @@ class UserController {
 
     @Transactional
     def save(User user) {
+        println('Saving...')
         if (user == null) {
             transactionStatus.setRollbackOnly()
             notFound()
@@ -36,7 +37,7 @@ class UserController {
             return
         }
 
-        if (!request.getFile('file').empty){
+        /*if (!request.getFile('file').empty){
             def file = request.getFile('file')
             def type = file.contentType.toString()
             type = type.substring(type.indexOf("/")+1,type.length())
@@ -44,9 +45,17 @@ class UserController {
             def name = user.username.toString()
             user.image = new Image(path: name+'.'+type)
             file.transferTo(new java.io.File(grailsApplication.config.server.uploadImage + '/users/'+ name+'.'+type))
-        }
+        }*/
 
         user.save flush:true
+
+        System.out.println("params : " + params)
+
+        if( params.roleID != null ) {
+            Role newRole = Role.findById(params.roleID);
+            UserRole.create(user, newRole, true)
+
+        }
 
         request.withFormat {
             form multipartForm {
@@ -153,6 +162,32 @@ class UserController {
 
         redirect(controller: 'login', action:'auth')
 
+    }
+
+
+    def registerFromAuth() {
+        println('registerFromAuth...')
+        println('params : '+ params)
+
+        def restBuilder = new RestBuilder()
+
+        def url = "http://localhost:1337/user/{id}"
+        def param = [id: params.user_id]
+
+        def respUser = restBuilder.get(url , param) {
+            header('Authorization', 'Bearer ' + params.token)
+        }
+
+        println("response : "+respUser.text)
+
+        def userImage = new Image(path: 'user.jpg').save(Flush: true, failOnError: true);
+        def user = new User(username: params.username, password: params.password, fullName: 'amine elleuch' , datenais: new Date(), tel: Integer.parseInt('21') , mail:respUser.json.email, image: userImage).save(Flush: true, failOnError: true);
+        def car = new Car( brand : 'BMW', model : 'Serie 1', matricule : 'RFHGF456', nb_place : 4, charge : 50, temperature_ext : 30).save(Flush: true, failOnError: true);
+        user.addToCars(car)
+        def profile = new Profile()
+        user.addToProfile(profile)
+        Role role=Role.findByAuthority('ROLE_USER');
+        UserRole.create (user, role, true)
     }
 
     protected void notFound() {
