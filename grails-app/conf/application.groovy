@@ -28,7 +28,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/car/**', access: ['permitAll']],
 	[pattern: '/location/**', access: ['permitAll']],
 	[pattern: '/media/**', access: ['permitAll']],
-	[pattern: '/playlist/**', access: ['permitAll']],
+	[pattern: '/playList/**', access: ['permitAll']],
 	[pattern: '/profile/**', access: ['permitAll']],
 	[pattern: '/setting/**', access: ['permitAll']]
 

@@ -6,6 +6,8 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class PlayListController {
 
+    static responseFormats = ['html', 'json']
+
     static allowedMethods = [save: "POST", update: ["PUT","POST"], delete: "DELETE"]
 
     def index(Integer max) {

@@ -7,6 +7,9 @@ import vamp_webapp.User
 @Transactional(readOnly = true)
 class CarController {
 
+    static responseFormats = ['html', 'json']
+
+
     static allowedMethods = [save: "POST", update: ["PUT","POST"], delete: "DELETE"]
 
     def index(Integer max) {
