@@ -2,6 +2,7 @@ package vamp_webapp
 
 import grails.gorm.transactions.Transactional
 import grails.plugins.rest.client.RestBuilder
+import groovy.json.JsonBuilder
 import org.springframework.util.LinkedMultiValueMap
 import org.springframework.util.MultiValueMap
 
@@ -9,18 +10,48 @@ import org.springframework.util.MultiValueMap
 class RestService {
 
     /*********************************************  USERS  *******************************************************/
-    def getUsers() {
+    def getUsers(boolean firstTime) {
 
-        def username = 'utilisateur2@gmail.com';
-        def password = 'utilisateur2';
+        if (firstTime) {
 
-        def urllogin = "http://localhost:1337/user/login?email={email}&password={password}"
-        def params = [email: username, password:password]
+            def restBuilder = new RestBuilder()
+            def json = new JsonBuilder()
 
-        def resplogin = new RestBuilder().get(urllogin,params) {
+            def username = "amine";
+            def password = "amine123456";
+            json identifier: username, password: password
 
+            def urlTemplate = "http://localhost:1337/auth/local"
+
+            def resp = restBuilder.post(urlTemplate) {
+                accept("application/json")
+                contentType("application/json")
+                body(json.toString())
+            }
+            System.out.println("Response status : " + resp.status + " Json : " + resp.json)
+
+            if (resp.status == 200) {
+                def url = "http://localhost:1337/user"
+
+                def respUser = restBuilder.get(url) {
+                    header('Authorization', 'Bearer ' + resp.json.token)
+                }
+
+                System.out.println("Response : " + respUser.json)
+
+                (0..respUser.json.length() - 1).each {
+                    int i ->
+                        def userImage = new Image(path: 'user.jpg').save(Flush: true, failOnError: true);
+                        def user = new User(username: respUser.json[i].username, password: respUser.json[i].username, fullName: 'amine elleuch', datenais: new Date(), tel: Integer.parseInt('21'), mail: respUser.json[i].email, image: userImage).save(Flush: true, failOnError: true);
+                        def car = new Car(brand: 'BMW', model: 'Serie 1', matricule: 'RFHGF456', nb_place: 4, charge: 50, temperature_ext: 30).save(Flush: true, failOnError: true);
+                        user.addToCars(car)
+                        def profile = new Profile()
+                        user.addToProfile(profile)
+                        Role role = Role.findByAuthority('ROLE_USER');
+                        UserRole.create(user, role, true)
+                }
+            }
         }
-        System.out.println("Response ON Login : "+resplogin.json)
 
 
 

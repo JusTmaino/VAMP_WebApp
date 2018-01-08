@@ -7,20 +7,9 @@
     <facet type="web" name="Web Gradle : VAMP_WebApp-0.1.war">
       <configuration>
         <webroots>
-          <root url="file://C:\Users\ASUS\IdeaProjects\VAMP_WebApp\src\main\webapp" relative="/" />
+          <root url="file://$MODULE_DIR$/../../src/main/webapp" relative="/" />
           <root url="file://$MODULE_DIR$/../../build/assets" relative="/assets" />
         </webroots>
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/../../grails-app/init" />
-          <root url="file://$MODULE_DIR$/../../grails-app/views" />
-          <root url="file://$MODULE_DIR$/../../grails-app/controllers" />
-          <root url="file://$MODULE_DIR$/../../src/main/resources" />
-          <root url="file://$MODULE_DIR$/../../src/main/java" />
-          <root url="file://$MODULE_DIR$/../../grails-app/conf" />
-          <root url="file://$MODULE_DIR$/../../grails-app/domain" />
-          <root url="file://$MODULE_DIR$/../../grails-app/i18n" />
-          <root url="file://$MODULE_DIR$/../../src/main/groovy" />
-        </sourceRoots>
       </configuration>
     </facet>
   </component>
@@ -32,8 +21,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../grails-app/domain" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../grails-app/init" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../grails-app/services" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../grails-app/taglib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../grails-app/utils" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../grails-app/conf" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../grails-app/i18n" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../grails-app/views" type="java-resource" />
@@ -71,20 +58,20 @@
     <orderEntry type="library" name="Gradle: org.grails.plugins:async:3.3.0" level="project" />
     <orderEntry type="library" name="Gradle: org.grails.plugins:scaffolding:3.3.3" level="project" />
     <orderEntry type="library" name="Gradle: org.grails.plugins:events:3.3.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.grails.plugins:hibernate5:6.1.6" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-core:5.1.5.Final" level="project" />
+    <orderEntry type="library" name="Gradle: org.grails.plugins:mongodb:6.1.2" level="project" />
     <orderEntry type="library" name="Gradle: org.grails.plugins:gsp:3.3.0" level="project" />
     <orderEntry type="library" name="Gradle: org.grails.plugins:spring-security-core:3.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.grails:grails-datastore-rest-client:6.1.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: commons-fileupload:commons-fileupload:1.3.2" level="project" />
     <orderEntry type="library" name="Gradle: ch.qos.logback:logback-classic:1.1.11" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.25" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:jul-to-slf4j:1.7.25" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.glassfish.web:el-impl:2.1.2-b03" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:log4j-over-slf4j:1.7.25" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.h2database:h2:1.4.195" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot:1.5.4.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.apache.tomcat:tomcat-jdbc:8.5.15" level="project" />
-    <orderEntry type="library" name="Gradle: org.codehaus.groovy:groovy:2.4.11" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.bertramlabs.plugins:asset-pipeline-grails:2.14.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.codehaus.groovy:groovy:2.4.11" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.25" level="project" />
     <orderEntry type="library" name="Gradle: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" level="project" />
     <orderEntry type="library" name="Gradle: com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:1.4.2" level="project" />
@@ -115,15 +102,8 @@
     <orderEntry type="library" name="Gradle: org.grails:grails-events-compat:3.3.0" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-datastore-web:6.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-datastore-gorm-support:6.1.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.grails:grails-datastore-gorm-hibernate5:6.1.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-orm:4.3.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.jboss.logging:jboss-logging:3.3.1.Final" level="project" />
-    <orderEntry type="library" name="Gradle: antlr:antlr:2.7.7" level="project" />
-    <orderEntry type="library" name="Gradle: org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: org.jboss:jandex:2.0.3.Final" level="project" />
-    <orderEntry type="library" name="Gradle: com.fasterxml:classmate:1.3.3" level="project" />
-    <orderEntry type="library" name="Gradle: dom4j:dom4j:1.6.1" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" level="project" />
+    <orderEntry type="library" name="Gradle: org.grails:grails-datastore-gorm-mongodb-ext:6.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.grails:grails-datastore-gorm-mongodb:6.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-jsp:3.3.0" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-gsp-taglib:3.3.0" level="project" />
     <orderEntry type="library" name="Gradle: commons-lang:commons-lang:2.6" level="project" />
@@ -131,6 +111,8 @@
     <orderEntry type="library" name="Gradle: net.sf.ehcache:ehcache:2.10.4" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-core:4.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-web:4.2.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.10" level="project" />
+    <orderEntry type="library" name="Gradle: commons-io:commons-io:2.2" level="project" />
     <orderEntry type="library" name="Gradle: ch.qos.logback:logback-core:1.1.11" level="project" />
     <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-aop:4.3.9.RELEASE" level="project" />
@@ -140,9 +122,9 @@
     <orderEntry type="library" name="Gradle: org.yaml:snakeyaml:1.17" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.el:el-api:2.1.2-b03" level="project" />
     <orderEntry type="library" name="Gradle: javax.transaction:jta:1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.8.8" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.apache.tomcat:tomcat-juli:8.5.15" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.bertramlabs.plugins:asset-pipeline-core:2.14.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.8.8" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-databinding:3.3.0" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-encoder:3.3.0" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-gsp:3.3.0" level="project" />
@@ -162,10 +144,8 @@
     <orderEntry type="library" name="Gradle: org.apache.tomcat.embed:tomcat-embed-logging-log4j:8.5.2" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-datastore-gorm-validation:6.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-web:4.3.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.grails:grails-datastore-gorm-hibernate-core:6.1.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.hibernate:hibernate-validator:5.3.5.Final" level="project" />
-    <orderEntry type="library" name="Gradle: javax.el:javax.el-api:2.2.4" level="project" />
-    <orderEntry type="library" name="Gradle: xml-apis:xml-apis:1.4.01" level="project" />
+    <orderEntry type="library" name="Gradle: org.mongodb:mongodb-driver:3.4.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.grails:grails-datastore-gorm-bson:6.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-codecs:3.3.0" level="project" />
     <orderEntry type="library" name="Gradle: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.8.0" level="project" />
@@ -175,8 +155,8 @@
     <orderEntry type="library" name="Gradle: org.grails:grails-web-taglib:3.3.0" level="project" />
     <orderEntry type="library" name="Gradle: opensymphony:sitemesh:2.4" level="project" />
     <orderEntry type="library" name="Gradle: commons-validator:commons-validator:1.5.1" level="project" />
-    <orderEntry type="library" name="Gradle: javax.validation:validation-api:1.1.0.Final" level="project" />
-    <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.10" level="project" />
+    <orderEntry type="library" name="Gradle: org.mongodb:bson:3.4.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.mongodb:mongodb-driver-core:3.4.2" level="project" />
     <orderEntry type="library" name="Gradle: commons-collections:commons-collections:3.2.2" level="project" />
   </component>
 </module>

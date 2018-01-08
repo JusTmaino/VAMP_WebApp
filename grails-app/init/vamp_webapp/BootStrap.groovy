@@ -3,7 +3,7 @@ package vamp_webapp
 class BootStrap {
 
     def init = { servletContext ->
-        def adminRole = new Role(authority: 'ROLE_ADMIN').save(Flush: true, failOnError: true);
+        /*def adminRole = new Role(authority: 'ROLE_ADMIN').save(Flush: true, failOnError: true);
         def userRole = new Role(authority: 'ROLE_USER').save(Flush: true, failOnError: true);
 
         def image = new Image(path: 'avatar-7.png').save(Flush: true, failOnError: true);
@@ -51,7 +51,7 @@ class BootStrap {
         UserRole.create(adminUser2, adminRole, true);
         UserRole.create(adminUser3, adminRole, true);
 
-        UserRole.create(userUser, userRole, true);
+        UserRole.create(userUser, userRole, true);*/
     }
     def destroy = {
     }

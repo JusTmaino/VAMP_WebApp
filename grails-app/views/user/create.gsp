@@ -88,7 +88,7 @@
                                     <div class="input-field col s12">
                                         <div class="form-group label-floating is-empty fieldcontain required">
                                             <label class="control-label">Telephone</label>
-                                            <input class="form-control" type="text" name="tel" id="tel"
+                                            <input class="form-control" type="number" name="tel" id="tel"
                                                    required="true"
                                                    aria-required="true">
                                             <span class="material-input"></span>
