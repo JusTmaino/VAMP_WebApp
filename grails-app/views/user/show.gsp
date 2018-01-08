@@ -81,7 +81,7 @@
     </div>
 
     <ul id="task-card" class="collection with-header">
-        <li class="collection-header gradient-45deg-light-blue-cyan">
+        <li class="collection-header" style="background: #37474f">
             <h4 class="task-card-title">Aboute Me</h4>
             <p class="task-card-date">March 26, 2015</p>
         </li>
