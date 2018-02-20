@@ -265,7 +265,7 @@
                                         <g:each var="cat" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
                                             <li style="text-align: center">
                                                 <a href="/profile/show/${cat.id}"><span
-                                                        class="sidebar-normal">profile ${cat.getId()}</span>
+                                                        class="sidebar-normal">Preference ${cat.getId()}</span>
                                                 </a>
                                             </li>
                                         </g:each>
