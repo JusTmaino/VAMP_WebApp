@@ -62,12 +62,14 @@ class PlayListController {
         if (profiles.size() > 0){
             (0..profiles.size() - 1).each {
                 int i ->
-                    profiles[i].addToPlaylists(playList)
+                    System.out.println("profile  : "+profiles[i])
+                    profiles[i].addToPlaylists(playList).save(Flush: true, failOnError: true)
             }
         }
         else {
             Profile profile = new Profile()
-            profile.addToPlaylists(playList).save(Flush: true, failOnError: true);
+            user.addToProfile(profile).save(Flush: true, failOnError: true)
+            profile.addToPlaylists(playList).save(Flush: true, failOnError: true)
             user.addToProfile(profile)
         }
         System.out.println("size after : "+user.getProfile().size())
