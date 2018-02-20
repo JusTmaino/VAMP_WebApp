@@ -6,7 +6,7 @@
 
 LOGIN URL : POST to `http://localhost:8080/api/login`, 
 
-Request Body must contrains JOSN DATA :  `{
+Request Body must contrains a JSON DATA :  `{
 	"username": "YourUsername",
 	"password": "YourPassword"
 }`
