@@ -49,7 +49,7 @@
                 <ul class="left">
                     <li>
                         <h1 class="logo-wrapper">
-                            <a href="#"
+                            <a href="/"
                                class="brand-logo darken-1">
                                 <asset:image src="vamp.png"
                                      alt="materialize logo" style="width: 175px;
@@ -127,8 +127,9 @@
                         <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button"
                            data-activates="profile-dropdown">
                             <span class="avatar-status avatar-online">
-                                <img src="${grailsApplication.config.server.pathServer}/images/users/${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).image.path}"
-
+                                <g:if test="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).image != null }">
+                                    <img src="${grailsApplication.config.server.pathServer}/images/users/${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).image.path}"
+                                </g:if>
                                      alt="avatar"/>
                                 <i></i>
                             </span>
@@ -184,8 +185,10 @@
                 <li class="user-details black-overlay darken-2">
                     <div class="row">
                         <div class="col col s4 m4 l4">
+                        <g:if test="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).image != null }">
                             <img src="${grailsApplication.config.server.pathServer}/images/users/${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).image.path}" alt=""
                                          class="circle responsive-img valign profile-image cyan"/>
+                        </g:if>
                         </div>
 
                         <div class="col col s8 m8 l8">
@@ -275,7 +278,7 @@
                             <a href="#"
                                class="waves-effect waves-cyan">
                                 <i class="material-icons">today</i>
-                                <span class="nav-text">Calender</span>
+                                <span class="nav-text">Point Of Interests</span>
                             </a>
                         </li>
 
@@ -498,9 +501,9 @@
                     document.write(new Date().getFullYear());
                 </script>2017 <a class="grey-text text-lighten-2"
                                  href="#"
-                                 target="_blank">Our Team name</a> All rights reserved.</span>
+                                 target="_blank">VAMP</a> All rights reserved.</span>
             <span class="right hide-on-small-only">Design and Developed by <a class="grey-text text-lighten-2"
-                                                                              href="">Our Team name</a>
+                                                                              href="">VAMP</a>
             </span>
         </div>
     </div>

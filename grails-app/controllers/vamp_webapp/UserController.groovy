@@ -86,7 +86,7 @@ class UserController {
             return
         }
 
-        if (!request.getFile('file').empty){
+        /*if (!request.getFile('file').empty){
             def file = request.getFile('file')
             def type = file.contentType.toString()
             type = type.substring(type.indexOf("/")+1,type.length())
@@ -94,7 +94,7 @@ class UserController {
             def name = user.username.toString()
             user.image = new Image(name: name+'.'+type)
             file.transferTo(new java.io.File(grailsApplication.config.server.uploadImage + '/users/'+ name+'.'+type))
-        }
+        }*/
 
         System.out.println("params : " + params)
 

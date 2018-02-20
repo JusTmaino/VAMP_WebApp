@@ -110,7 +110,7 @@
         </li>
         <li class="collection-item avatar">
             <i class="material-icons circle red accent-2">play_arrow</i>
-            <span class="title">PlayListe</span>
+            <span class="title">PlayLists</span>
             <p>
                 <g:each var="p" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
                     <g:each var="play" in="${p.getPlaylists().findAll()}">

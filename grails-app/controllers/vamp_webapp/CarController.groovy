@@ -101,6 +101,26 @@ class CarController {
             return
         }
 
+        List<User> users = User.getAll()
+        (0..users.size() - 1).each {
+            int i ->
+                User user = User.findById(users[i]);
+                Set<Car> cars = user.getCars()
+                if(cars!= null) {
+                    (0..cars.size() - 1).each {
+                        int j ->
+                            Car voiture = Car.findById(cars[j])
+                            if (voiture == car) {
+                                Set<Image> images = car.getImages()
+                                (0..images.size() - 1).each {
+                                    int k ->
+                                        voiture.removeFromImages(images[k])
+                                }
+                                user.removeFromCars(voiture)
+                            }
+                    }
+                }
+        }
         car.delete flush:true
 
         request.withFormat {

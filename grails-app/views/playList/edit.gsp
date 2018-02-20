@@ -17,7 +17,7 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:uploadForm action="save" resource="${this.playList}" method="PUT" class="form-horizontal" enctype="multipart/form-data">
+            <g:uploadForm action="update" resource="${this.playList}" method="PUT" class="form-horizontal" enctype="multipart/form-data">
                 <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">

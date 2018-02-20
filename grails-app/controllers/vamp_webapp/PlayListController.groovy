@@ -54,7 +54,25 @@ class PlayListController {
         }
 
         playList.save flush:true
-        //vamp_webapp.User.findById(${sec.loggedInUserInfo(field: 'id')})
+
+        User user = User.findById(sec.loggedInUserInfo(field: 'id'))
+        System.out.println("username : "+user.username)
+        Set<Profile> profiles = user.getProfile()
+        System.out.println("size : "+profiles.size())
+        if (profiles.size() > 0){
+            (0..profiles.size() - 1).each {
+                int i ->
+                    profiles[i].addToPlaylists(playList)
+            }
+        }
+        else {
+            Profile profile = new Profile()
+            profile.addToPlaylists(playList).save(Flush: true, failOnError: true);
+            user.addToProfile(profile)
+        }
+        System.out.println("size after : "+user.getProfile().size())
+
+
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'playList.label', default: 'PlayList'), playList.id])

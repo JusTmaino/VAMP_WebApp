@@ -3,15 +3,15 @@ package vamp_webapp
 class UrlMappings {
 
     static mappings = {
-        "/car"(resources:"car")
-        "/location"(resources:"location")
-        "/media"(resources:"media")
-        "/playList"(resources:"playlist")
-        "/profile"(resources:"profile")
-        "/role"(resources:"role")
-        "/setting"(resources:"setting")
-        "/user"(resources:"user")
-        "/userRole"(resources:"userrole")
+        "/api/car"(resources:"car")
+        "/api/location"(resources:"location")
+        "/api/media"(resources:"media")
+        "/api/playList"(resources:"playlist")
+        "/api/profile"(resources:"profile")
+        "/api/role"(resources:"role")
+        "/api/setting"(resources:"setting")
+        "/api/user"(resources:"user")
+        "/api/userRole"(resources:"userrole")
 
         "/$controller/$action?/$id?(.$format)?"{
             constraints {

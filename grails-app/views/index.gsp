@@ -46,6 +46,7 @@
     </content>
 <br>
 <div class="row">
+    <g:if test="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getCars() != null }">
         <g:each var="car" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getCars()}">
             <div class="col s12 m12 l4 item">
                 <div class="card">
@@ -87,18 +88,25 @@
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">
-                            <i class="material-icons right">close</i> Apple MacBook Pro A1278 13"</span>
-                        <p>Here is some more information about this item that is only revealed once clicked on.</p>
+                            <i class="material-icons right">close</i> ${car.brand} ${car.model}</span>
+                        <p>Registerd Number : ${car.matricule}.</p>
+                        <p>Seat Number : ${car.nb_place}.</p>
+                        <p>Charge : ${car.charge}.</p>
+                        <p>Outside Temperature : ${car.temperature_ext}.</p>
                     </div>
                 </div>
             </div>
         </g:each>
+    </g:if>
 </div>
 
 <ul id="task-card" class="collection with-header">
     <li class="collection-header" style="background: #37474f;">
         <h4 class="task-card-title">PlayList</h4>
     </li>
+    <a href="/playList/create" class="btn-floating activator waves-effect waves-light rec accent-2 right materialize-red" style="margin-top: -55px;">
+        <i class="material-icons">add</i>
+    </a>
 <g:each var="profile" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
     <g:each var="play" in="${profile.getPlaylists().findAll()}">
         <a href="/playList/show/${play.id}">
