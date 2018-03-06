@@ -13,6 +13,8 @@ class UrlMappings {
         "/api/user"(resources:"user")
         "/api/userRole"(resources:"userrole")
 
+        "/apii/user/$username"(controller: 'user', action: 'getUserByUsername')
+
         "/$controller/$action?/$id?(.$format)?"{
             constraints {
                 // apply constraints here

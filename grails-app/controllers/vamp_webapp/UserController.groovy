@@ -4,6 +4,8 @@ import grails.plugins.rest.client.RestBuilder
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.converters.JSON
+import grails.converters.XML
 
 class UserController {
 
@@ -190,6 +192,32 @@ class UserController {
         user.addToProfile(profile)
         Role role=Role.findByAuthority('ROLE_USER');
         UserRole.create (user, role, true)
+    }
+
+
+    def getUserByUsername() {
+        System.out.println("In User >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> parms : " + params)
+
+        switch (request.getMethod()) {
+
+            case "GET":
+                if (params.username != null) {
+                    def userInstance = User.findByUsername(params.username)
+                    if (userInstance != null) {
+                        withFormat {
+                            json { render userInstance as JSON }
+                            xml { render userInstance as XML }
+                        }
+                        response.status = 201
+                    }
+
+                }
+                else {
+                    render(status: 404, text: "No Username Found ")
+                    return
+                }
+            break;
+        }
     }
 
     protected void notFound() {
