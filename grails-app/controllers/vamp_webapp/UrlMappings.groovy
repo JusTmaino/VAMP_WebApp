@@ -13,7 +13,17 @@ class UrlMappings {
         "/api/user"(resources:"user")
         "/api/userRole"(resources:"userrole")
 
-        "/apii/user/$username"(controller: 'user', action: 'getUserByUsername')
+        "/car"(resources:"car")
+        "/location"(resources:"location")
+        "/media"(resources:"media")
+        "/playList"(resources:"playlist")
+        "/profile"(resources:"profile")
+        "/role"(resources:"role")
+        "/setting"(resources:"setting")
+        "/user"(resources:"user")
+        "/userRole"(resources:"userrole")
+
+        //"/apii/user/$username"(controller: 'user', action: 'getUserByUsername')
 
         "/$controller/$action?/$id?(.$format)?"{
             constraints {

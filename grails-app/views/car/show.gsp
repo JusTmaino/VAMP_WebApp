@@ -39,7 +39,7 @@
                                 <p><h5>Temperature Externe : ${car.temperature_ext}</h5></p>
                                 <p><h5>Locked : ${car.locked}</h5></p>
 
-                                <a href="/car/edit/${car.id}" class="btn-floating activator waves-effect waves-light rec accent-2 right red">
+                                <a href="/car/edit/${car.id}" class="btn-floating activator waves-effect waves-light rec accent-2 right materialize-red">
                                     <i class="material-icons">edit</i>
                                 </a>
                             </div>
