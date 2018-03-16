@@ -118,7 +118,7 @@ class CarController {
                                         //cars[j].removeFromImages(images[k])
                                         images[k].delete flush: true
                                 }
-                                //users[i].removeFromCars(cars[j])
+                                users[i].removeFromCars(cars[j])
                                 car.delete flush:true
                             }
                     }

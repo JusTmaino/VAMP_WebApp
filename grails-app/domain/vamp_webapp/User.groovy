@@ -24,7 +24,6 @@ class User implements Serializable {
     String mail
     String adresse
     Image image
-    Location location
 
     static hasMany = [cars:Car,profile:Profile]
 
@@ -37,7 +36,6 @@ class User implements Serializable {
         username nullable: false, blank: false, unique: true
         image nullable: true
         adresse nullable: true
-        location nullable: true
     }
 
     static mapping = {
