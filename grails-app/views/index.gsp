@@ -107,6 +107,11 @@
     <a href="/playList/create" class="btn-floating activator waves-effect waves-light rec accent-2 right materialize-red" style="margin-top: -55px;">
         <i class="material-icons">add</i>
     </a>
+    <a href="/playList/create" class="secondary-content">
+        <i class="material-icons" style="
+        color: #e51c23;
+        ">add_box</i>
+    </a>
 <g:each var="profile" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
     <g:each var="play" in="${profile.getPlaylists().findAll()}">
         <a href="/playList/show/${play.id}">

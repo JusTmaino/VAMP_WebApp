@@ -18,7 +18,7 @@
 	<asset:stylesheet src="page-center.css"/>
 	<asset:stylesheet src="perfect-scrollbar.css"/>
 </head>
-<body class="cyan loaded">
+<body class="black-overlay loaded">
 <!-- Start Page Loading -->
 <div id="loader-wrapper">
 	<div id="loader"></div>
@@ -31,7 +31,7 @@
 		<form action="${postUrl ?: '/login/authenticate'}" method="POST" id="loginForm" class="cssform login-form" autocomplete="off">
 			<div class="row">
 				<div class="input-field col s12 center">
-					<img src="logo here" alt="" class="circle responsive-img valign profile-image-login">
+					<asset:image src="logo.png" name="image" id="image" alt="" style="width: 100px;height: 100px"/>
 					<h3>VAMP</h3>
 				</div>
 				<g:if test='${flash.message}'>
@@ -60,15 +60,15 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
-					<button type="submit" id="submit" class="btn waves-effect waves-light col s12">Se connecter</button>
+					<button type="submit" id="submit" class="btn waves-effect waves-light col s12 materialize-red">Se connecter</button>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s6 m6 l6">
-					<p class="margin medium-small"><g:link action="register" controller="login">Nouveau utilisateur!</g:link></p>
+					<p class="margin medium-small"><g:link action="register" controller="login" style="color: red">Nouveau utilisateur!</g:link></p>
 				</div>
 				<div class="input-field col s6 m6 l6">
-					<p class="margin right-align medium-small"><a href="#">Mot de passe oublié?</a></p>
+					<p class="margin right-align medium-small"><a href="#" style="color: red">Mot de passe oublié?</a></p>
 				</div>
 			</div>
 		</form>

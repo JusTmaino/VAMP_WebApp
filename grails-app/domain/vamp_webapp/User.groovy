@@ -20,9 +20,11 @@ class User implements Serializable {
 
     String fullName
     Date datenais
-    Integer tel
+    String tel
     String mail
+    String adresse
     Image image
+    Location location
 
     static hasMany = [cars:Car,profile:Profile]
 
@@ -34,6 +36,8 @@ class User implements Serializable {
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
         image nullable: true
+        adresse nullable: true
+        location nullable: true
     }
 
     static mapping = {

@@ -7403,7 +7403,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .side-nav li > a.btn:hover, .side-nav li > a.btn-large:hover, .side-nav li > a.btn-large:hover {
-  background-color: #ff5a92;
+  background-color: red;
 }
 
 .side-nav li > a.btn-floating:hover {
@@ -8863,7 +8863,7 @@ input[type=range]:focus::-ms-fill-upper {
 }*/
 .picker__date-display {
   text-align: left;
-  background-color: #ff4081;
+  background-color: red;
   color: #fff;
   padding: 18px;
   font-weight: 300;

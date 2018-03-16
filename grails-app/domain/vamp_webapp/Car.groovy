@@ -9,9 +9,11 @@ class Car {
     Integer charge;
     Integer temperature_ext;
     boolean locked;
+    Location location;
 
 
     static hasMany = [images:Image]
+    static belongsTo = [User]
     //static hasMany = [users:User]
     //static  hasOne = [location:Location]
 
@@ -22,5 +24,6 @@ class Car {
         nb_place nullable:false
         charge nullable:false
         temperature_ext nullable:false
+        location nullable: true
     }
 }

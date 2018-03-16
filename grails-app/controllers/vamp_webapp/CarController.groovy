@@ -39,6 +39,7 @@ class CarController {
             return
         }
 
+
         request.getMultiFileMap().files.each {
             def name = it.originalFilename
             car.addToImages(new Image(path: name))
@@ -75,11 +76,11 @@ class CarController {
             return
         }
 
-        /*request.getMultiFileMap().files.each {
+        request.getMultiFileMap().files.each {
             def name = it.originalFilename
             car.addToImages(new Image(path: name))
             it.transferTo(new java.io.File(grailsApplication.config.server.uploadImage +'cars/'+ name))
-        }*/
+        }
 
         car.save flush:true
 
@@ -104,24 +105,26 @@ class CarController {
         List<User> users = User.getAll()
         (0..users.size() - 1).each {
             int i ->
-                User user = User.findById(users[i]);
-                Set<Car> cars = user.getCars()
+                //User user = User.findById(users[i].id);
+                Set<Car> cars = users[i].getCars()
                 if(cars!= null) {
                     (0..cars.size() - 1).each {
                         int j ->
-                            Car voiture = Car.findById(cars[j])
-                            if (voiture == car) {
+                            //Car voiture = Car.findById(cars[j].id)
+                            if (cars[j] == car) {
                                 Set<Image> images = car.getImages()
                                 (0..images.size() - 1).each {
                                     int k ->
-                                        voiture.removeFromImages(images[k])
+                                        //cars[j].removeFromImages(images[k])
+                                        images[k].delete flush: true
                                 }
-                                user.removeFromCars(voiture)
+                                //users[i].removeFromCars(cars[j])
+                                car.delete flush:true
                             }
                     }
                 }
         }
-        car.delete flush:true
+
 
         request.withFormat {
             form multipartForm {

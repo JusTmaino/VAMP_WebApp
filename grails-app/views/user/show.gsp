@@ -38,22 +38,24 @@
                     <h4 class="card-title grey-text text-darken-4">${user.mail}</h4>
                     <p class="medium-small grey-text">Mail</p>
                 </div>
-                <div class="col s12 m1 right-align">
-                    <a class="btn-floating activator waves-effect waves-light rec accent-2 right">
-                        <i class="material-icons">perm_identity</i>
-                    </a>
-                </div>
-                <div class="col s12 m1 right-align">
-                    <a href="/user/edit/${user.id}"  class="btn-floating activator waves-effect waves-light rec accent-2 right">
-                        <i class="material-icons">edit</i>
-                    </a>
-                </div>
-                <div class="col s12 m12 right-align">
-                    <a class="btn-floating activator waves-effect waves-light rec accent-2 right">
-                        <i class="material-icons">delete</i>
-                    </a>
-                </div>
             </div>
+            <br>
+            <div >
+                <a class="btn-floating activator waves-effect waves-light materialize-red accent-2 right" style="margin-left: 10px">
+                    <i class="material-icons">perm_identity</i>
+                </a>
+            </div>
+            <div >
+                <a href="/user/edit/${user.id}"  class="btn-floating activator waves-effect waves-light materialize-red accent-2 right" style="margin-left: 10px">
+                    <i class="material-icons">edit</i>
+                </a>
+            </div>
+            <div >
+                <a class="btn-floating activator waves-effect waves-light materialize-red accent-2 right">
+                    <i class="material-icons">delete</i>
+                </a>
+            </div>
+            <br>
         </div>
         <div class="card-reveal">
             <p>
@@ -82,7 +84,7 @@
 
     <ul id="task-card" class="collection with-header">
         <li class="collection-header" style="background: #37474f">
-            <h4 class="task-card-title">Aboute Me</h4>
+            <h4 class="task-card-title">About Me</h4>
             <p class="task-card-date">March 26, 2015</p>
         </li>
         <li class="collection-item avatar">
@@ -90,38 +92,48 @@
             <span class="title">Cars</span>
             <p>
                 <g:each var="car" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getCars()}">
+                    <a href="/car/show/${car.id}">
                     ${car.brand} ${car.model}
+                    </a>
                     <br>
                 </g:each>
             </p>
-            <a href="#!" class="secondary-content">
-                <i class="material-icons">car</i>
+
+            <a href="/car/create" class="secondary-content">
+                <i class="material-icons" style="
+                color: #e51c23;
+                ">add_box</i>
             </a>
+
         </li>
-        <li class="collection-item avatar">
+        <!--li class="collection-item avatar">
             <i class="material-icons circle cyan">assessment</i>
             <span class="title"> Profiles</span>
             <p>
-                <g:each var="p" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
+                <--g:each var="p" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
                     profile
                     <br>
-                </g:each>
+                </--g:each>
             </p>
-        </li>
+        </li-->
         <li class="collection-item avatar">
             <i class="material-icons circle red accent-2">play_arrow</i>
             <span class="title">PlayLists</span>
             <p>
                 <g:each var="p" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
                     <g:each var="play" in="${p.getPlaylists().findAll()}">
+                        <a href="/playList/show/${play.id}">
                         ${play.name}
+                        </a>
                         <br>
                     </g:each>
                 </g:each>
             </p>
-            <a href="#!" class="secondary-content">
-                <i class="material-icons">track_changes</i>
-            </a>
+        <a href="/playList/create" class="secondary-content">
+            <i class="material-icons" style="
+            color: #e51c23;
+            ">add_box</i>
+        </a>
         </li>
     </ul>
 
@@ -132,13 +144,13 @@
 
                     <g:link class="edit" action="edit"
                             resource="${user}"><div
-                            class="btn btn-success btn-fill">Modifier</div></g:link>
-                    <input class="delete btn btn-danger btn-fill" type="submit"
+                            class="btn btn-success btn-fill black-overlay">Modifier</div></g:link>
+                    <input class="delete btn materialize-red btn-fill" type="submit"
                            value="${message(code: 'default.button.delete.label', default: 'Delete')}"
                            onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"/>
 
             </g:form>
-
+<br>
     </sec:ifAnyGranted>
 
     </body>
