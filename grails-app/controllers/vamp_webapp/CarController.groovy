@@ -76,11 +76,11 @@ class CarController {
             return
         }
 
-        request.getMultiFileMap().files.each {
+        /*request.getMultiFileMap().files.each {
             def name = it.originalFilename
             car.addToImages(new Image(path: name))
             it.transferTo(new java.io.File(grailsApplication.config.server.uploadImage +'cars/'+ name))
-        }
+        }*/
 
         car.save flush:true
 

@@ -14,8 +14,6 @@ class Car {
 
     static hasMany = [images:Image]
     static belongsTo = [User]
-    //static hasMany = [users:User]
-    //static  hasOne = [location:Location]
 
     static constraints = {
         brand blank: false

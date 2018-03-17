@@ -28,7 +28,7 @@
                         <a href="show/${user.id}" class="btn-floating btn-move-up waves-effect waves-light deep-orange accent-2 z-depth-4 right">
                             <i class="material-icons">chevron_right</i>
                         </a>
-                        <a href="#" class="btn-floating  btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                        <a href="#" class="btn-floating  btn-move-up waves-effect waves-light red accent-2 z-depth-4 right" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');">
                             <i class="material-icons">delete</i>
                         </a>
                         <a href="edit/${user.id}" class="btn-floating  btn-move-up waves-effect waves-light teal accent-4 z-depth-4 right">
