@@ -51,7 +51,7 @@
                         <h1 class="logo-wrapper">
                             <a href="/"
                                class="brand-logo darken-1">
-                                <asset:image src="vamp.png"
+                                <asset:image src="v3.png"
                                      alt="materialize logo" style="width: 175px;
     height: 97px;
     margin-top: -23px;
