@@ -3,7 +3,7 @@ package vamp_webapp
 class BootStrap {
 
     def init = { servletContext ->
-        /*def adminRole = new Role(authority: 'ROLE_ADMIN').save(Flush: true, failOnError: true);
+        def adminRole = new Role(authority: 'ROLE_ADMIN').save(Flush: true, failOnError: true);
         def userRole = new Role(authority: 'ROLE_USER').save(Flush: true, failOnError: true);
 
         def image = new Image(path: 'avatar-7.png').save(Flush: true, failOnError: true);
@@ -40,18 +40,19 @@ class BootStrap {
         userUser.addToCars(car2).save(Flush: true, failOnError: true);
 
         def profile = new Profile()
-        adminUser.addToProfile(profile).save(Flush: true, failOnError: true);
-        userUser.addToProfile(profile).save(Flush: true, failOnError: true);
+        def profile1 = new Profile()
+        adminUser.addToProfiles(profile).save(Flush: true, failOnError: true);
+        userUser.addToProfiles(profile1).save(Flush: true, failOnError: true);
 
         profile.addToPlaylists(play).save(Flush: true, failOnError: true);
-        profile.addToPlaylists(play1).save(Flush: true, failOnError: true);
+        profile1.addToPlaylists(play1).save(Flush: true, failOnError: true);
 
         UserRole.create(adminUser, adminRole, true);
         UserRole.create(adminUser1, adminRole, true);
         UserRole.create(adminUser2, adminRole, true);
         UserRole.create(adminUser3, adminRole, true);
 
-        UserRole.create(userUser, userRole, true);*/
+        UserRole.create(userUser, userRole, true);
     }
     def destroy = {
     }

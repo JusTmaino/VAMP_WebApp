@@ -19,10 +19,10 @@
 
                     <div class="card-content">
                         <g:if test="${user.image != null}">
-                            <img src="${grailsApplication.config.server.pathServer}/images/users/${user.image.path}" id="img"  class="circle responsive-img activator card-profile-image cyan lighten-1 padding-2" />
+                            <img src="${grailsApplication.config.server.pathServer}/images/users/${user.image.path}" id="img"  class="circle responsive-img activator card-profile-image black-overlay lighten-1 padding-2" />
                         </g:if>
                         <g:else>
-                            <asset:image src="avatar-7.png" name="image" id="image" alt="" class="circle responsive-img activator card-profile-image cyan lighten-1 padding-2"/>
+                            <asset:image src="avatar-7.png" name="image" id="image" alt="" class="circle responsive-img activator card-profile-image black-overlay lighten-1 padding-2"/>
                         </g:else>
 
                         <a href="show/${user.id}" class="btn-floating btn-move-up waves-effect waves-light deep-orange accent-2 z-depth-4 right">
@@ -131,7 +131,7 @@
     </div>
 </div>
 <div class="fixed-action-btn " style="bottom: 50px; right: 19px;">
-    <a href="create" class="waves-effect waves-light btn-floating btn-large">
+    <a href="create" class="waves-effect waves-light btn-floating btn-large materialize-red">
         <i class="material-icons">add</i>
     </a>
 </div>

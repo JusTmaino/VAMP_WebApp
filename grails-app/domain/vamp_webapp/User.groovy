@@ -25,7 +25,7 @@ class User implements Serializable {
     String adresse
     Image image
 
-    static hasMany = [cars:Car,profile:Profile]
+    static hasMany = [cars:Car,profiles:Profile]
 
     Set<Role> getAuthorities() {
         (UserRole.findAllByUser(this) as List<UserRole>)*.role as Set<Role>

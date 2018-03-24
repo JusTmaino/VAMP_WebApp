@@ -208,7 +208,7 @@
                                 <div class="collapsible-body">
 
                                     <ul class="nav" id="profiles">
-                                        <g:each var="cat" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
+                                        <g:each var="cat" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfiles()}">
                                             <li style="text-align: center">
                                                 <a href="/profile/show/${cat.id}"><span
                                                         class="sidebar-normal">Preference ${cat.getId()}</span>

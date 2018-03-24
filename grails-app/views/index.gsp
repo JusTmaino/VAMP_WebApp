@@ -58,8 +58,6 @@
                                     <div class="carousel-item red white-text" href="#one!">
                                         <img src="${grailsApplication.config.server.pathServer}/images/cars/${img.path}"
                                              alt="item-img">
-                                        <h2>First Panel</h2>
-                                        <p class="white-text">This is your first panel</p>
                                     </div>
                                 </g:each>
                             </div>
@@ -104,7 +102,7 @@
     <li class="collection-header" style="background: #37474f;">
         <h4 class="task-card-title">PlayList</h4>
     </li>
-    <a href="/playList/create" class="btn-floating activator waves-effect waves-light rec accent-2 right materialize-red" style="margin-top: -55px;">
+    <a href="/playList/create" class="btn-floating activator waves-effect waves-light rec accent-2 right materialize-red" style="margin-top: -55px;margin-right: 10px">
         <i class="material-icons">add</i>
     </a>
     <a href="/playList/create" class="secondary-content">
@@ -112,7 +110,7 @@
         color: #e51c23;
         ">add_box</i>
     </a>
-<g:each var="profile" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfile()}">
+<g:each var="profile" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfiles()}">
     <g:each var="play" in="${profile.getPlaylists().findAll()}">
         <a href="/playList/show/${play.id}">
         <li class="collection-item avatar">

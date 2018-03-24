@@ -57,7 +57,7 @@ class PlayListController {
 
         User user = User.findById(sec.loggedInUserInfo(field: 'id'))
         System.out.println("username : "+user.username)
-        Set<Profile> profiles = user.getProfile()
+        Set<Profile> profiles = user.getProfiles()
         System.out.println("size : "+profiles.size())
         if (profiles.size() > 0){
             (0..profiles.size() - 1).each {
@@ -68,11 +68,11 @@ class PlayListController {
         }
         else {
             Profile profile = new Profile()
-            user.addToProfile(profile).save(Flush: true, failOnError: true)
+            user.addToProfiles(profile).save(Flush: true, failOnError: true)
             profile.addToPlaylists(playList).save(Flush: true, failOnError: true)
-            user.addToProfile(profile)
+            user.addToProfiles(profile)
         }
-        System.out.println("size after : "+user.getProfile().size())
+        System.out.println("size after : "+user.getProfiles().size())
 
 
         request.withFormat {
@@ -126,6 +126,19 @@ class PlayListController {
             transactionStatus.setRollbackOnly()
             notFound()
             return
+        }
+
+        User user = User.findById(sec.loggedInUserInfo(field: 'id'))
+        Set<Profile> profiles = user.getProfiles()
+        profiles.each {
+            Profile p = Profile.findById(it.getId())
+            it.playlists.each {
+                if(it == playList){
+                    Set<PlayList> PLs = p.getPlaylists()
+                    PLs.remove(PlayList.findById(playList.getId()))
+
+                }
+            }
         }
 
         playList.delete flush:true

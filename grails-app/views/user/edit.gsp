@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="col-lg-offset-1" style="margin-top:5px;">
-                            <input type="file" name="file" id="upload" size="10" onchange="readURL(this.value)" style="background-color: #4caf9c;
+                            <input type="file" name="file" id="upload" size="10" onchange="readURL(this.value)" style="background-color: #6b777c;
                             border: none;
                             color: white;
                             padding: 15px 32px;
@@ -262,10 +262,9 @@
                             </div>
                         </div>
 
-                        <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" style="background-color: #4caf9c;
+                        <input class="save btn materialize-red btn-fill" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" style="background-color: #4caf9c;
                         border: none;
                         color: white;
-                        padding: 15px 32px;
                         border-radius: 8px;
                         margin-bottom: 10px;" />
                     </div>
