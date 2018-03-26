@@ -16,11 +16,11 @@
                 <ul id="issues-collection" class="collection z-depth-1">
                     <li class="collection-item avatar">
                         <div class="col s12 m1 right-align">
-                            <a href="/playList/edit/${playList.id}" class="btn-floating activator waves-effect waves-light rec accent-2 right">
+                            <a href="/playList/edit/${playList.id}" class="btn-floating activator waves-effect waves-light materialize-red accent-2 right">
                                 <i class="material-icons">edit</i>
                             </a>
                         </div>
-                        <i class="material-icons red accent-2 circle">bug_report</i>
+                        <i class="material-icons red accent-2 circle">assessment</i>
                         <h4 class="collection-header m-0">${playList.name}</h4>
                     </li>
 <g:each var="media" in="${playList.getMedias().findAll()}">

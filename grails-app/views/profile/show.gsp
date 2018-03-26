@@ -15,7 +15,13 @@
 
             <ul id="task-card" class="collection with-header">
                 <li class="collection-header"  style="background: #37474f;">
+                    <div class="col s12 m1 right-align">
+                        <a href="/profile/edit/${profile.id}" class="btn-floating activator waves-effect waves-light materialize-red accent-2 right">
+                            <i class="material-icons">edit</i>
+                        </a>
+                    </div>
                     <h4 class="task-card-title">PlayList</h4>
+
                 </li>
                 <g:each var="profile" in="${vamp_webapp.User.findById(sec.loggedInUserInfo(field: 'id')).getProfiles()}">
                     <g:each var="play" in="${profile.getPlaylists().findAll()}">
@@ -30,10 +36,15 @@
                     </g:each>
                 </g:each>
                 <br>
+            </ul>
             <g:form resource="${this.profile}" method="DELETE">
-
-                    <g:link class="edit" action="edit" resource="${this.profile}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                    <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" style="
+                    background-color: #b9151b;
+                    border: none;
+                    color: white;
+                    padding: 10px 40px;
+                    border-radius: 6px;
+                    margin-bottom: 10px;"/>
 
             </g:form>
         </div>

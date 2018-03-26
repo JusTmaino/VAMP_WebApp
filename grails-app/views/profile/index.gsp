@@ -6,23 +6,26 @@
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
-        <a href="#list-profile" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
-        <div id="list-profile" class="content scaffold-list" role="main">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
-            <g:if test="${flash.message}">
-                <div class="message" role="status">${flash.message}</div>
-            </g:if>
-            <f:table collection="${profileList}" />
 
-            <div class="pagination">
-                <g:paginate total="${profileCount ?: 0}" />
-            </div>
-        </div>
+
+
+            <ul id="task-card" class="collection with-header">
+                <li class="collection-header"  style="background: #37474f;">
+                    <h4 class="task-card-title">Profile List</h4>
+                </li>
+                <g:each var="profile" in="${vamp_webapp.Profile.findAll()}">
+
+                        <a href="/profile/show/${profile.id}">
+                            <li class="collection-item avatar">
+                                <i class="material-icons circle red" style="margin-top: 10px">favorite_border</i>
+                                <br>
+                                <span class="title" style="color: red;">profile ${profile.id}</span>
+                            </li>
+
+                        </a>
+
+                </g:each>
+
+            </ul>
     </body>
 </html>
