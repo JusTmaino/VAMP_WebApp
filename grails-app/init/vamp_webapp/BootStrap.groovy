@@ -22,11 +22,11 @@ class BootStrap {
         def play1 = new PlayList(name: "Playlist2",sound: 10);
         play1.addToMedias(media3).save(Flush: true, failOnError: true);
 
-        def adminUser = new User(username: 'admin', password: 'password', fullName: 'surname1' , datenais: new Date(), tel: 123 , mail:'mail@', image: image,adresse: 'route Nice').save(Flush: true, failOnError: true);
-        def adminUser1 = new User(username: 'admin1', password: 'password', fullName: 'surname' , datenais: new Date(), tel: 123 , mail:'mail@').save(Flush: true, failOnError: true);
-        def adminUser2 = new User(username: 'admin2', password: 'password', fullName: 'surname' , datenais: new Date(), tel: 123 , mail:'mail@').save(Flush: true, failOnError: true);
-        def adminUser3 = new User(username: 'admin3', password: 'password', fullName: 'surname' , datenais: new Date(), tel: 123 , mail:'mail@').save(Flush: true, failOnError: true);
-        def userUser = new User(username: 'user', password: 'password',fullName: 'surname' , datenais: new Date(), tel: 123 , mail:'mail@', image: userImage,adresse: 'Antibes').save(Flush: true, failOnError: true);
+        def adminUser = new User(username: 'Serge', password: 'password', fullName: 'Serge Mirande' , datenais: new Date(), tel: '0625147781' , mail:'SergeMirande@gmail.com', image: image,adresse: 'route Nice').save(Flush: true, failOnError: true);
+        def adminUser1 = new User(username: 'Imed', password: 'password', fullName: 'Imed Zaghdane' , datenais: new Date(), tel: '0610463752' , mail:'imed@gmail.com').save(Flush: true, failOnError: true);
+        def adminUser2 = new User(username: 'Amine', password: 'password', fullName: 'Amine Elleuch' , datenais: new Date(), tel: '0659481526' , mail:'amine@gmail.com').save(Flush: true, failOnError: true);
+        def adminUser3 = new User(username: 'Hamdi', password: 'password', fullName: 'Hamdi Gazzah' , datenais: new Date(), tel: '0625143637' , mail:'hamdi@gmail.com').save(Flush: true, failOnError: true);
+        def userUser = new User(username: 'user', password: 'password',fullName: 'surname' , datenais: new Date(), tel: '123' , mail:'mail@', image: userImage,adresse: 'Antibes').save(Flush: true, failOnError: true);
 
         def car2 = new Car( brand : 'Peugeot', model : 'Ion', matricule : 'fhn', nb_place : 4, charge : 50, temperature_ext : 30)
         def car1 = new Car( brand : 'mercedes', model : 'class E', matricule : 'fhn', nb_place : 4, charge : 50, temperature_ext : 30)

@@ -14,7 +14,7 @@
             <div class="col s12 m4 l4">
                 <div id="profile-card" class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <asset:image src="téléchargement.jpg" class="activator"  alt="user bg"/>
+                        <asset:image src="fond.jpg" class="activator"  alt="user bg"/>
                     </div>
 
                     <div class="card-content">
